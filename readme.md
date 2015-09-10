@@ -1,0 +1,1 @@
+An app that grabs instagram data for your hashtag and allows the user to compose a collage.  Delete pictures you don't want, add a title and share.
