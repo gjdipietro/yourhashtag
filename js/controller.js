@@ -5,9 +5,8 @@ angular.module('hashtagCtrl', [])
 .controller('hashtagCtrl', ['$scope', 'igAPI',
   function($scope, igAPI) {
     $scope.data = 'Getting data';
-    getIgData();
-    function getIgData() {
-      igAPI.getPhotoData()
+    function getIgData(hashtag) {
+      igAPI.getPhotoData(hashtag)
         .success(function (data) {
           $scope.data = data;
         })
