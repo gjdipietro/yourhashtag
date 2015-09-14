@@ -19,16 +19,16 @@
 		<script src="js/controller.js" type="text/javascript"></script>
 		<script src="js/service.js" type="text/javascript"></script>
 	</head>
-	<body ng-app="hashTagApp" ng-controller="hashtagCtrl">
+	<body ng-app="hashtagApp" ng-controller="hashtagCtrl">
 		<h1>#Yourhashtag</h1>
 		<form class="search" ng-submit="getIgData(hashtag)" method="get">
 			<div class="field-group">
 				<i class="fa fa-search"></i>
 				<input type="text" name="hashtag" ng-model="hashtag" required="" placeholder="Search your hashtag">
-				<input type="submit" value="Search">
+				<input type="submit" value="Search" ng-submit="getIgData(hashtag)">
 			</div>
 		</form>
-
+		{{hashtag}}
 		<pre>{{data | json}}</pre>
 	</body>
 </html>
