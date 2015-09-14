@@ -1,23 +1,26 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>#YourHashtag</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>#YourHashtag</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--favicons-->
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!--favicons-->
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <!--css-->
-        <link rel="stylesheet" href="css/app.css">
+		<!--css-->
+		<link rel="stylesheet" href="css/app.css">
 
-    </head>
-    <body>
+		<!--js-->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+		<script href="app.js" type="text/javascript"></script>
 
-    	<h1>#Yourhashtag</h1>
-		<form class="search" action="/search/search-results" method="get">
+	</head>
+	<body ng-app="hashTagApp" ng-controller="hashTagCtrl">
+		<h1>#Yourhashtag</h1>
+		<form class="search" action="https://api.instagram.com/v1/tags/gbxoxo/media/recent?client_id=93d7311401a74e1b8c1a3b9fa196ea20" method="get">
 			<div class="field-group">
 				<i class="fa fa-search"></i>
 				<input type="text" name="s" required="" placeholder="Search your hashtag">
@@ -26,16 +29,16 @@
 			</div>
 		</form>
 
+		<pre>{{data | json}}</pre>
+	</body>
+</html>
 
 <script type="text/javascript">
 	/*jslint browser:true */
-	"use strict";
-	var html = document.getElementsByTagName("html");
-	html[0].className = "";
+	'use strict';
+	var html = document.getElementsByTagName('html');
+	html[0].className = '';
 </script>
-
-    </body>
-</html>
 
 
 
