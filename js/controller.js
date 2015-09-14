@@ -7,6 +7,8 @@ angular.module('hashtagCtrl', [])
     function getIgData(hashtag) {
       igAPI.getPhotoData(hashtag)
         .success(function (data) {
+          console.log("hashtag: " + hashtag);
+          console.log(data);
           $scope.data = data;
         })
         .error(function (response) {
