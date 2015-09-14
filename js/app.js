@@ -1,6 +1,6 @@
 'use strict';
 
-var hashTagApp = angular.module('hashTagApp', [
+angular.module('hashTagApp', [
   'hashtagCtrl',
   'instagramService'
 ]);

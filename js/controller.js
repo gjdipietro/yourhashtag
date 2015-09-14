@@ -2,12 +2,12 @@
 /*jslint browser:true */
 
 angular.module('hashtagCtrl', [])
-.controller('hashtagCtrl', ['$scope', 'igService',
-  function($scope, igService) {
+.controller('hashtagCtrl', ['$scope', 'igAPI',
+  function($scope, igAPI) {
     $scope.data = 'Getting data';
     getIgData();
     function getIgData() {
-      igService.getPhotoData()
+      igAPI.getPhotoData()
         .success(function (data) {
           $scope.data = data;
         })
