@@ -1,10 +1,13 @@
 'use strict';
+/*jslint browser:true */
 
-angular.module('hashTagCtrl', [])
-.controller('hashTagCtrl', ['$scope', 'instagramService',
-  function($scope, instagramService) {
-    function getUserInfo() {
-      instagramService.getPhotoData()
+angular.module('hashtagCtrl', [])
+.controller('hashtagCtrl', ['$scope', 'igService',
+  function($scope, igService) {
+    $scope.data = 'Getting data';
+    getIgData();
+    function getIgData() {
+      igService.getPhotoData()
         .success(function (data) {
           $scope.data = data;
         })
