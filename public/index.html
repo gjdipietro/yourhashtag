@@ -12,6 +12,7 @@
 
 		<!--css-->
 		<link rel="stylesheet" href="css/app.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
 
 		<!--js-->
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
@@ -20,18 +21,27 @@
 		<script src="js/service.js" type="text/javascript"></script>
 	</head>
 	<body ng-app="hashtagApp" ng-controller="hashtagCtrl">
-		<h1>#Yourhashtag</h1>
-		<form class="search" ng-submit="processForm(hashtag)" method="get">
-			<div class="field-group">
-				<i class="fa fa-search"></i>
-				<input type="text" name="hashtag" ng-model="hashtag" required="" placeholder="Search your hashtag" value="gbxoxo">
-				<input type="submit" value="Search">
-			</div>
-		</form>
-		
-		<ul>
-			<li ng-repeat="image in data" style="float:left; list-style:none; width: 24.5%">
-				<img ng-src="{{image.images.standard_resolution.url}}" style="max-width: 100%" />
+		<header class="header">
+			<h1>#yourhashtag</h1>
+			<form class="header--form " ng-submit="processForm(hashtag)" method="get">
+				<div class="inputGroup">
+			      <label class="inputGroup--addon" for="searchHash" id="basic-addon1">#</label>
+			      <input type="text" id="searchHash"
+						name="hashtag" 
+						ng-model="hashtag" 
+						class="input inputGroup--input" 
+						placeholder="Search your hashtag" 
+						value="gbxoxo"
+						aria-describedby="basic-addon1">
+			    </div>
+				<input type="submit" value="Search" class="btn btn--primary inputGroup--addon--modBtn">
+			</form>
+		</header>
+		<ul class="picGrid clearfix">
+			<li class="picGrid--photo" ng-repeat="image in data" >
+				<img class="picGrid--photo--img" ng-src="{{image.images.standard_resolution.url}}"  />
+				<button>X</button>
+				<button>2x</button>
 			</li>
 		</ul>
 		
