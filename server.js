@@ -1,18 +1,20 @@
 'use strict';
 
-var http = require('http');
-var PORT = 8080;
+// Dependencies
+var express = require('express');
+var path = require('path');
 
-//We need a function which handles requests and send response
-function handleRequest(request, response) {
-  response.send();
-}
+var app = express();
+var port = process.env.PORT || 1337;
 
-//Create a server
-var server = http.createServer(handleRequest);
 
-//Lets start our server
-server.listen(PORT, function() {
-  //Callback triggered when server is successfully listening. Hurray!
-  console.log("Server listening on: http://localhost:%s", PORT);
+// Express Middleware
+app.set('views', path.join(__dirname, 'app/views'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(function (req, res, next) {
+  next();
 });
+
+// Start Server
+app.listen(port);
+console.log('APP is running on port ' + port);
