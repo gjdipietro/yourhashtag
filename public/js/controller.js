@@ -2,11 +2,12 @@
 /*jslint browser:true */
 
 angular.module('hashtagCtrl', [])
-.controller('hashtagCtrl', ['$scope', 'instagram',
-  function($scope, instagram) {
+.controller('hashtagCtrl', ['$scope', 'instagramAPI',
+  function($scope, instagramAPI) {
     
     //set initial value
     $scope.hashtag = 'gbxoxo';
+    instagramAPI.setAuth();
     
     //handle the form
     $scope.processForm = function() {
@@ -15,7 +16,7 @@ angular.module('hashtagCtrl', [])
 
     //make API call
     function getHashtagData(hashtag) {
-      instagram.fetchHashtag($scope.hashtag, function(data) {
+      instagramAPI.fetchHashtag($scope.hashtag, function(data) {
         $scope.data = data;
       });
     }

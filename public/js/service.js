@@ -1,23 +1,41 @@
 'use strict';
 
-var Instagram = {};
-
-// Small object for holding important configuration data.
-Instagram.Config = {
-  clientID: '93d7311401a74e1b8c1a3b9fa196ea20',
-  apiHost: 'https://api.instagram.com'
-};
-
 angular.module('instagramService', [])
-  .factory('instagram', ['$http', function ($http) {
-    return {
-      fetchHashtag: function(hashtag, callback) {
-        var endPoint = Instagram.Config.apiHost + '/v1/tags/' + hashtag + '/media/recent?client_id=' + Instagram.Config.clientID + '&callback=JSON_CALLBACK';
-        $http.jsonp(endPoint).success(function(response) {
-          callback(response.data);
-        });
-      }
-    }
-  }]);
+  .factory('instagramAPI', ['$http', function ($http) {
+    var instagram = {};
+    var endPoint;
+    var auth = '';
+    var apiUrl;
+    var clientId;
+    var callbackString = '&callback=JSON_CALLBACK';
 
+    instagram.setCredentials = function (instagramApiConfig) {
+      apiUrl = instagramApiConfig.apiUrl;
+      clientId = instagramApiConfig.clientId;
+    };
+
+    instagram.setAuth = function (accessToken) {
+      if (accessToken) {
+        accessToken = accessToken;
+        auth = 'access_token=' + accessToken;
+      } else {
+        auth = 'client_id=' + clientId;
+      }
+    };
+
+    instagram.getAuth = function () {
+      return auth;
+    };
+
+    instagram.fetchHashtag = function (hashtag, callback) {
+      endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
+      console.log(endPoint);
+      $http.jsonp(endPoint).success(function (response) {
+        callback(response.data);
+      });
+    };
+
+    return instagram;
+  
+  }]);
 
