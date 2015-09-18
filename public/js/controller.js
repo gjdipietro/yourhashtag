@@ -17,5 +17,8 @@ angular.module('hashtagCtrl', [])
     $scope.removeImage = function (index) {
       $scope.images.splice(index, 1);
     }
+    $scope.featureImage = function (index, isFeatured) {
+      $scope.images[index].isFeatured = !isFeatured;
+    }
   }
 ]);

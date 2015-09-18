@@ -14,7 +14,7 @@ img {
 }
 
 body {
-	background: #000;
+	background: #FFF;
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 }
@@ -37,13 +37,13 @@ body {
 		position: relative;
 		width: 25%;
 	}
-	.picGrid--photo--mod-2x {
+	.picGrid__photo__mod_2x {
 		width: 50%;
 	}
 		.picGrid--photo--img {
 			width: 100%;
 		}
-		.picGrid--photo--button {
+		.picGrid--photo--buttons {
 			position: absolute;
 			right: 0;
 			top: 0;
