@@ -21,10 +21,10 @@
 		<script src="js/service.js" type="text/javascript"></script>
 	</head>
 	<body ng-app="hashtagApp" ng-controller="hashtagCtrl">
-		<header class="header">
+		<header class="header ">
 			<h1>#yourhashtag</h1>
-			<form class="header--form " ng-submit="processForm(hashtag)" method="get">
-				<div class="inputGroup">
+			<form class="header--form clearfix" ng-submit="processForm(hashtag)" method="get">
+				<div class="inputGroup header--form--input">
 			      <label class="inputGroup--addon" for="searchHash" id="basic-addon1">#</label>
 			      <input type="text" id="searchHash"
 						name="hashtag" 
@@ -34,18 +34,19 @@
 						value="gbxoxo"
 						aria-describedby="basic-addon1">
 			    </div>
-				<input type="submit" value="Search" class="btn btn--primary inputGroup--addon--modBtn">
+				<input type="submit" value="Search" class="btn btn--primary header--form--button">
 			</form>
 		</header>
 		<ul class="picGrid clearfix">
-			<li class="picGrid--photo" ng-repeat="image in data" >
-				<img class="picGrid--photo--img" ng-src="{{image.images.standard_resolution.url}}"  />
-				<button>X</button>
-				<button>2x</button>
+			<li class="picGrid--photo" ng-repeat="image in images" >
+				<img class="picGrid--photo--img" ng-src="{{image.standard_resolution.url}}"  />
+				<button class="picGrid--photo--button btn btn--secondary" ng-click="removeImage($index)">
+				x
+				</button>
 			</li>
 		</ul>
 		
-		<pre style="clear:both">{{data | json }}</pre>
+		<pre style="clear:both">{{images | json }}</pre>
 
 	</body>
 </html>

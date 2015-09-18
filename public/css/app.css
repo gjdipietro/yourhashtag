@@ -6,6 +6,12 @@ img {
   overflow: auto;
   zoom: 1;
 }
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
 
 body {
 	background: #000;
@@ -28,17 +34,20 @@ body {
 	.picGrid--photo {
 		float:left; 
 		list-style:none; 
-		padding: .5%;
 		position: relative;
-		width: 24%;
+		width: 25%;
 	}
 	.picGrid--photo--mod-2x {
-		width: 49%;
+		width: 50%;
 	}
 		.picGrid--photo--img {
 			width: 100%;
 		}
-		
+		.picGrid--photo--button {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 
 /* Input module */
 
@@ -100,7 +109,7 @@ body {
     font-weight: bold;
     white-space: nowrap;
     padding: 7px 13px;
-    border-radius: 3px;
+    height: 32px;
 } 
 	.btn--primary {
 	    -webkit-font-smoothing: antialiased;
@@ -140,6 +149,13 @@ body {
 		width: 500px;
     	margin: 0 auto;
 	}
-
+		.header--form--input {
+			width: 80%;
+			float: left;
+		}
+		.header--form--button {
+			width: 20%;
+			float: left;
+		}
 
 pre {color:#FFF;}

@@ -29,7 +29,6 @@ angular.module('instagramService', [])
 
     instagram.fetchHashtag = function (hashtag, callback) {
       endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
-      console.log(endPoint);
       $http.jsonp(endPoint).success(function (response) {
         callback(response.data);
       });
