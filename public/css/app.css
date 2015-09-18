@@ -25,10 +25,17 @@ body {
 }
 
 
+.picContainer {
+	background: #333;
+    box-shadow: inset 0 0 1em #000;
+	margin: 48px auto;
+	max-width: 1500px;
+    padding: 48px;
+}
+
 /* picture gride module */
 .picGrid {
-	background: #000;
-	margin: 0;
+	margin:  0;
 	padding: 0;
 }
 	.picGrid--photo {
@@ -158,4 +165,4 @@ body {
 			float: left;
 		}
 
-pre {color:#FFF;}
+pre {color:#333;}

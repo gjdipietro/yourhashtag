@@ -37,27 +37,31 @@
 				<input type="submit" value="Search" class="btn btn--primary header--form--button">
 			</form>
 		</header>
-		
-		<ul class="picGrid clearfix">
-			<li class="picGrid--photo" 
-				ng-repeat="image in images"
-				ng-class="{picGrid__photo__mod_2x : image.isFeatured===true}"> 
 
-				<img class="picGrid--photo--img" ng-src="{{image.standard_resolution.url}}"  />
-				<div class="picGrid--photo--buttons">
-					<button class="btn btn--secondary" ng-click="featureImage($index, image.isFeatured)">
-						{{ image.isFeatured && '1x' || '2x' }}
-					</button>
-					<button class="btn btn--secondary" ng-click="removeImage($index)">x</button>	
+		<div class="picContainer">
+			<ul class="picGrid clearfix">
+				<li class="picGrid--photo" 
+					ng-repeat="image in images"
+					ng-class="{picGrid__photo__mod_2x : image.isFeatured===true}"> 
+
+					<img class="picGrid--photo--img" ng-src="{{image.url}}"  />
+					<div class="picGrid--photo--buttons">
+						<button class="btn btn--secondary" ng-click="featureImage($index, image.isFeatured)">
+							{{ image.isFeatured && '1x' || '2x' }}
+						</button>
+						<button class="btn btn--secondary" ng-click="removeImage($index)">x</button>	
+					</div>
+				</li>
+			</ul>
+			<div style="margin:20px auto; text-align: center">
+				<div>
+					<input type="text" style="border:none; text-align: center; background:transparent; box-shadow:none;" value="{{hashtag}}" />
 				</div>
-			</li>
-		</ul>
-		
-		<div style="margin:20px auto; background:#EEE; background:#FFF;">
-			{{hashtag}}
-			<input type="text" style="border:none; background:transparent; box-shadow:none;" />
+				<div>
+					<input type="text" style="border:none; text-align: center; background:transparent; box-shadow:none;" />
+				</div>
+			</div>
 		</div>
-
 
 		<pre style="clear:both">{{images | json }}</pre>
 

@@ -11,7 +11,7 @@ angular.module('hashtagCtrl', [])
     $scope.processForm = function() {
       //make API call
       instagramAPI.fetchHashtag($scope.hashtag, function(data) {
-        $scope.images = data.map(function(x) { return x.images; });
+        $scope.images = data.map(function(x) { return x.images.standard_resolution; });
       });
     }
     $scope.removeImage = function (index) {
