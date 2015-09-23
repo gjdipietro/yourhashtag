@@ -70,7 +70,6 @@ body {
     color: #333;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    font-weight: 600;
     line-height: 20px;
     height: 32px;
     padding: 6px 0 6px 4px;
@@ -120,9 +119,7 @@ body {
 .btn {
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
     white-space: nowrap;
-    padding: 7px 13px;
     height: 32px;
 } 
 	.btn__primary {

@@ -42,10 +42,12 @@
 				<input type="submit" value="Search" class="btn btn__primary header__form__button">
 			</form>
 		</header>
-
 		<div class="container">
 			<div class="emptyContent" ng-if="!data.images.length">
 				Search for your hashtag.
+				<p>
+					<a href="https://instagram.com/oauth/authorize/?client_id=93d7311401a74e1b8c1a3b9fa196ea20&redirect_uri=http://localhost:1337/callback.html&response_type=token">Auth</a>
+				</p>
 			</div>
 			<div class="frame" ng-if="data.images.length">
 				<ul class="picGrid clearfix">
@@ -74,6 +76,7 @@
 				</form>
 			</div>
 		</div>
+		
 	</body>
 </html>
 

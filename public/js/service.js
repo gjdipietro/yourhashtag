@@ -4,7 +4,7 @@ angular.module('instagramService', [])
   .factory('instagramAPI', ['$http', function ($http) {
     var instagram = {};
     var endPoint;
-    var auth = '';
+    var auth;
     var apiUrl;
     var clientId;
     var callbackString = '&callback=JSON_CALLBACK';
