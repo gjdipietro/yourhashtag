@@ -45,12 +45,7 @@
 			</form>
 		</header>
 		<div class="container">
-			<div class="emptyContent" ng-if="!data.images.length">
-				Search for your hashtag.
-				<p>
-					<a href="https://instagram.com/oauth/authorize/?client_id=93d7311401a74e1b8c1a3b9fa196ea20&redirect_uri=http://localhost:1337/callback.html&response_type=token">Auth</a>
-				</p>
-			</div>
+			
 			<div class="frame" ng-if="data.images.length">
 				<ul class="picGrid clearfix">
 					<li class="picGrid__photo" 
@@ -77,6 +72,11 @@
 					<input type="submit" value="Create!" class="btn btn__primary" />
 				</form>
 			</div>
+
+			<p class="emptyContent">
+				<a ng-href="{{authLink}}">Sign in</a>
+				to see photos from private accounts
+			</p>
 		</div>
 		
 	</body>
