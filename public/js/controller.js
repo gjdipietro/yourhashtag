@@ -2,8 +2,9 @@
 /*jslint browser:true */
 
 angular.module('hashtagCtrl', [])
-.controller('hashtagCtrl', ['$scope', 'instagramAPI',
-  function($scope, instagramAPI) {
+.controller('hashtagCtrl', ['$scope', '$location', 'instagramAPI',
+  function($scope, $location, instagramAPI) {
+    
     $scope.data = {};
     $scope.data.meta = {};
     
@@ -16,7 +17,6 @@ angular.module('hashtagCtrl', [])
         });
       });
       $scope.data.meta.title = '#' + $scope._hashtag;
-
     };
 
     $scope.removeImage = function (index) {
@@ -26,5 +26,12 @@ angular.module('hashtagCtrl', [])
     $scope.featureImage = function (index, isFeatured) {
       $scope.data.images[index].isFeatured = !isFeatured;
     };
+
+    if ($location.$$path !== '/') {
+      $scope.accessToken = $location.$$path.slice(1);
+      instagramAPI.setAuth($scope.accessToken);
+      $location.path('/');
+    }
   }
 ]);
+

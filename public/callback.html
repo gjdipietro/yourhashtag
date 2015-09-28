@@ -7,11 +7,11 @@
 <body>
 
 <script>
-    var access = window.location.hash.replace('#access_token=', '').split("&")[0];
+    var access = window.location.hash.replace('#access_token=', '');
     if (access) {
-        window.location = "./#/login/" + access;
+        window.location = "/#/" + access;
     } else {
-        window.location =  "./#/index";
+        window.location =  "/#/";
     }
 </script>
 
