@@ -6,14 +6,13 @@ angular.module('hashtagCtrl', [])
   function($scope, $location, instagramAPI) {
     
     $scope.data = {};
+    $scope.data.images = {};
     $scope.data.meta = {};
     $scope.authLink = "";
     $scope.authLink = instagramAPI.getAuthLink();
 
 
     instagramAPI.setAuth();
-    
-
 
     $scope.processForm = function() {
       instagramAPI.fetchHashtag($scope._hashtag, function(data) {
