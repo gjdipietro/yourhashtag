@@ -3,11 +3,8 @@ var Authentication = angular.module('Authentication', []);
 Authentication.factory('AuthenticationService',
     ['$cookieStore', '$rootScope',
         function ($cookieStore, $rootScope) {
-
           var service = {};
-
           var providerService = {};
-
           service.start = function (provider) {
 
             if (provider) {
@@ -38,19 +35,14 @@ Authentication.factory('AuthenticationService',
               providerService.setAuth();
 
             }
-
           };
 
           service.isLoggedIn = function () {
-
             return $rootScope.globals.currentUser;
-
           };
 
           service.getCurrentUser = function () {
-
             return $rootScope.globals.currentUser;
-
           };
 
           service.getAuthLink = function () {
@@ -58,30 +50,21 @@ Authentication.factory('AuthenticationService',
           };
 
           service.setAuth = function(accessToken) {
-
             providerService.setAuth(accessToken);
-
             $rootScope.access_token = accessToken;
-
           };
 
           service.getUserSelf = function (callback) {
-
             providerService.getUserSelf(function (response) {
-
               service.SetCredentials(response.data);
-
               if (callback) {
                 callback(response);
               }
-
             });
-
           };
 
           //set from zero or update
           service.SetCredentials = function (user) {
-
             $rootScope.globals = {
               currentUser: {
                 access_token : $rootScope.access_token || $cookieStore.get('globals').currentUser.access_token,
@@ -94,38 +77,25 @@ Authentication.factory('AuthenticationService',
                 counts: user.counts
               }
             };
-
             $cookieStore.put('globals', $rootScope.globals);
           };
 
           service.ClearCredentials = function () {
-
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             providerService.setAuth();
-
           };
 
           service.checkCredentials = function(callback) {
-
             providerService.checkCredentials(function(response) {
-
               callback(response);
-
             });
-
           };
 
           service.getRequestedBy = function(callback) {
-
             providerService.getRequestedBy(function(response) {
-
               callback(response);
-
             });
-
           };
-
           return service;
-
         }]);
