@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('instagramService', [])
-  .factory('instagramAPI', ['$http', function ($http) {
+angular.module('instagramService', ['ngCookies'])
+  .factory('instagramAPI', ['$http', '$cookies', function ($http, $cookies) {
     var instagram = {};
     var endPoint;
     var auth;
@@ -10,7 +10,7 @@ angular.module('instagramService', [])
     var clientId;
     var callbackString = '&callback=JSON_CALLBACK';
     var auth = '';
-    var _access_token;
+    var accessToken;
     
     instagram.setCredentials = function (instagramApiConfig) {
       apiUrl = instagramApiConfig.apiUrl;
@@ -19,6 +19,7 @@ angular.module('instagramService', [])
     };
 
     instagram.setAuth = function (accessToken) {
+      $cookies.put('myFavorite', 'oatmeal')
       if (accessToken) {
         accessToken = accessToken;
         auth = 'access_token=' + accessToken;
@@ -41,8 +42,6 @@ angular.module('instagramService', [])
     instagram.getAuthLink = function () {
         return 'https://instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
     };
-
     return instagram;
-  
   }]);
 

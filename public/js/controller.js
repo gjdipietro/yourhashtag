@@ -4,11 +4,9 @@
 angular.module('hashtagCtrl', [])
 .controller('hashtagCtrl', ['$scope', '$location', 'instagramAPI',
   function($scope, $location, instagramAPI) {
-    
     $scope.data = {};
     $scope.data.images = {};
     $scope.data.meta = {};
-    $scope.authLink = "";
     $scope.authLink = instagramAPI.getAuthLink();
 
     instagramAPI.setAuth();
