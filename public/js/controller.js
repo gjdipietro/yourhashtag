@@ -1,38 +1,47 @@
-'use strict';
 /*jslint browser:true */
+'use strict';
 
-angular.module('hashtagCtrl', [])
-.controller('hashtagCtrl', ['$scope', '$location', 'instagramAPI',
-  function($scope, $location, instagramAPI) {
-    $scope.data = {};
-    $scope.data.images = {};
-    $scope.data.meta = {};
-    $scope.authLink = instagramAPI.getAuthLink();
+angular.module('hashtag.controller', [])
+  .controller('HashtagCtrl', HashtagCtrl);
 
-    instagramAPI.setAuth();
+HashtagCtrl.$inject = ['$location', 'instagramAPI'];
 
-    $scope.processForm = function() {
-      instagramAPI.fetchHashtag($scope._hashtag,  function(data) {
-        $scope.data.images = data.map(function (x) {
-          return x.images.standard_resolution;
-        });
-      });
-      $scope.data.meta.title = '#' + $scope._hashtag;
-    };
+function HashtagCtrl ($location, instagramAPI) {
+  var vm = this;
+  vm.title = '#yourhashtag';
+  vm.data = {};
+  vm.data.images = {};
+  vm.data.meta = {};
+  vm.authLink = instagramAPI.getAuthLink();
+  vm.accessToken = '';
+  vm.processForm = processForm;
+  vm.removeImage = removeImage;
+  vm.featureImage = featureImage;
+  vm.hashtag = 'gbxoxo';
+  instagramAPI.setAuth();
 
-    $scope.removeImage = function (index) {
-      $scope.data.images.splice(index, 1);
-    };
-
-    $scope.featureImage = function (index, isFeatured) {
-      $scope.data.images[index].isFeatured = !isFeatured;
-    };
-
-    if ($location.$$path !== '/') {
-      $scope.accessToken = $location.$$path.slice(1);
-      instagramAPI.setAuth($scope.accessToken);
-      $location.path('/');
-    }
+  if ($location.$$path !== '/') {
+    vm.accessToken = $location.$$path.slice(1);
+    instagramAPI.setAuth(vm.accessToken);
+    $location.path('/');
   }
-]);
+  //////////////
+  ////////
+  ////
+  function processForm (hashtag) {
+    instagramAPI.fetchHashtag(hashtag,  function(data) {
+      vm.data.images = data.map(function (x) {
+        return x.images.standard_resolution;
+      });
+    });
+    vm.data.meta.title = '#' + hashtag;
+    vm.title = '#' + hashtag;
+  }
+  function removeImage (index) {
+    vm.data.images.splice(index, 1);
+  }
+  function featureImage (index, isFeatured) {
+    vm.data.images[index].isFeatured = !isFeatured;
+  }
+}
 
