@@ -15,6 +15,7 @@ function HashtagCtrl ($location, instagramAPI) {
   vm.authLink = instagramAPI.getAuthLink();
   vm.accessToken = '';
   vm.processForm = processForm;
+  vm.clearForm = clearForm;
   vm.removeImage = removeImage;
   vm.featureImage = featureImage;
   vm.hashtag = 'gbxoxo';
@@ -26,9 +27,9 @@ function HashtagCtrl ($location, instagramAPI) {
     $location.path('/');
   }
   //////////////
-  ////////
-  ////
+  //////////////
   function processForm (hashtag) {
+    $location.path('/' + hashtag);
     instagramAPI.fetchHashtag(hashtag,  function(data) {
       vm.data.images = data.map(function (x) {
         return x.images.standard_resolution;
@@ -37,9 +38,19 @@ function HashtagCtrl ($location, instagramAPI) {
     vm.data.meta.title = '#' + hashtag;
     vm.title = '#' + hashtag;
   }
+
+  function clearForm() {
+    $location.path('/');
+    vm.title = '#yourhashtag';
+    vm.data.images = {};
+    vm.data.meta = {};
+    vm.hashtag = '';
+  }
+
   function removeImage (index) {
     vm.data.images.splice(index, 1);
   }
+
   function featureImage (index, isFeatured) {
     vm.data.images[index].isFeatured = !isFeatured;
   }

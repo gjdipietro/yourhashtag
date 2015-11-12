@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('instagramService', ['ngCookies'])
-  .factory('instagramAPI', ['$http', '$cookies', function ($http, $cookies) {
-    var instagram = {};
+  .factory('instagramAPI', instagramAPI);
+
+  function instagramAPI ($http, $cookies) {
     var endPoint;
     var auth;
     var apiUrl;
@@ -12,36 +13,46 @@ angular.module('instagramService', ['ngCookies'])
     var auth = '';
     var accessToken;
     
-    instagram.setCredentials = function (instagramApiConfig) {
+    var instagram =  {
+      setCredentials: setCredentials,
+      setAuth: setAuth,
+      getAuth: getAuth,
+      fetchHashtag: fetchHashtag,
+      getAuthLink: getAuthLink,
+    }
+    return instagram;
+
+    function setCredentials (instagramApiConfig) {
       apiUrl = instagramApiConfig.apiUrl;
       clientId = instagramApiConfig.clientId;
       callback = instagramApiConfig.callback;
-    };
+    }
 
-    instagram.setAuth = function (accessToken) {
-      $cookies.put('myFavorite', 'oatmeal')
+    function setAuth (accessToken) {
       if (accessToken) {
-        accessToken = accessToken;
         auth = 'access_token=' + accessToken;
+        $cookies.put('accessToken', accessToken)
       } else {
         auth = 'client_id=' + clientId;
       }
-    };
+    }
 
-    instagram.getAuth = function () {
+    function getAuth () {
+      if ($cookies.get('accessToken')) {
+        auth = 'access_token=' + $cookies.get('accessToken');
+      }
       return auth;
     };
 
-    instagram.fetchHashtag = function (hashtag, callback, count) {
+    function fetchHashtag (hashtag, callback, count) {
       endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
       $http.jsonp(endPoint).success(function (response) {
         callback(response.data);
       });
     };
 
-    instagram.getAuthLink = function () {
+    function getAuthLink () {
         return 'https://instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
     };
-    return instagram;
-  }]);
+  }
 

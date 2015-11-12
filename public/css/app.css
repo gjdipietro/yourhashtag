@@ -24,19 +24,15 @@ body {
 }
 
 .container {
-	margin: 48px auto;
+	margin: 0 auto;
 	max-width: 1500px;
 }
 
-.frame {
-	background: #333;
-    box-shadow: inset 0 0 1em #000;
-    padding: 48px;
-}
 .emptyContent {
 	color:#999;
 	font-size: 1.25rem;
 	text-align: center;
+	margin-top: 48px;
 }
 
 /* picture gride module */
@@ -44,19 +40,19 @@ body {
 	margin:  0;
 	padding: 0;
 }
-	.picGrid__photo {
+	.picGrid-photo {
 		float:left; 
 		list-style:none; 
 		position: relative;
 		width: 25%;
 	}
-	.picGrid__photo__mod_2x {
+	.picGrid-photo_2x {
 		width: 50%;
 	}
-		.picGrid__photo__img {
+		.picGrid-photo-img {
 			width: 100%;
 		}
-		.picGrid__photo__buttons {
+		.picGrid-photo-buttons {
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -80,7 +76,7 @@ body {
     display: table;
     border-collapse: separate;
 }
-	.inputGroup__addon {
+	.inputGroup-addon {
 		width: 1%;
     	white-space: nowrap;
     	vertical-align: middle;
@@ -92,7 +88,7 @@ body {
 	    border: 1px solid #ccc;
 	    border-right: 0;
 	}
-	.inputGroup__input {
+	.inputGroup-input {
 	    display: table-cell;
 	    position: relative;
 	    z-index: 2;
@@ -106,10 +102,10 @@ body {
 	    margin-bottom: 0;
 	}
 
-	.inputGroup__addon + .inputGroup__input {
+	.inputGroup-addon + .inputGroup-input {
 		border-left: 0;
 	}
-	.inputGroup__input + .inputGroup__addon {
+	.inputGroup-input + .inputGroup-addon {
 		border-left: 0;
 	}
 
@@ -122,7 +118,7 @@ body {
     white-space: nowrap;
     height: 32px;
 } 
-	.btn__primary {
+	.btn_primary {
 	    -webkit-font-smoothing: antialiased;
 	    -moz-osx-font-smoothing: grayscale;
 	    background-image: -webkit-gradient(linear, left top, left bottom, from(#e3262e), to(#ab171e));
@@ -136,7 +132,7 @@ body {
 	    border-top-color: #af151b;
     	color: #FFF;
 	}
-	.btn__secondary {
+	.btn_secondary {
     	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f0f0f0));
 	    background: -webkit-linear-gradient(#fff, #f0f0f0);
 	    background: linear-gradient(#fff, #f0f0f0);
@@ -156,15 +152,15 @@ body {
 	padding: 12px 0;
 	text-align: center;
 }
-	.header__form {
+	.header-form {
 		width: 500px;
     	margin: 0 auto;
 	}
-		.header__form__input {
+		.header-form-input {
 			width: 80%;
 			float: left;
 		}
-		.header__form__button {
+		.header-form-button {
 			width: 20%;
 			float: left;
 		}
@@ -176,23 +172,29 @@ body {
 	margin: 20px auto; 
 	text-align: center;
 }
-.meta__input {
-	border: none; 
-	background: transparent; 
-	box-shadow: none;
-	color: #FFF;
-	display: block;
-	font-size: 3rem;
-	text-align: center; 
-	width: 100%;
+	.meta-input {
+		border: none; 
+		background: transparent; 
+		box-shadow: none;
+		color: #333;
+		display: block;
+		font-size: 3rem;
+		text-align: center; 
+		width: 100%;
+	}
+	.meta-input_caption {
+		font-size: 1.75rem;
+	}
+
+
+
+.logo {
+	color: #e3262e;
+	text-decoration: none;
 }
-.meta__input__mod__caption {
-	font-size: 1.75rem;
-}
-
-
-
-
+	.logo:hover {
+		color: #ab171e;
+	}
 
 
 pre {color:#333;}

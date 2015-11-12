@@ -31,58 +31,54 @@
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		
 		<header class="header">
-			<h1><a href="/">{{vm.title}}</a></h1>
-			<form class="header__form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
-				<div class="inputGroup header__form__input">
-			      <label class="inputGroup__addon" for="searchHash" id="basic-addon1">#</label>
+			<h1><a href="/" role="button" ng-click="vm.clearForm();" class="logo">{{vm.title}}</a></h1>
+			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
+				<div class="inputGroup header-form-input">
+			      <label class="inputGroup-addon" for="searchHash" id="searchHashLabel">#</label>
 			      <input type="text" id="searchHash"
 						name="hashtag" 
 						ng-model="vm.hashtag" 
-						class="input inputGroup__input" 
+						class="input inputGroup-input" 
 						placeholder="Search your hashtag" 
-						aria-describedby="basic-addon1">
+						aria-describedby="searchHashLabel"
+						autofocus>
 			    </div>
-				<input type="submit" value="Search" class="btn btn__primary header__form__button">
+				<input type="submit" value="Search" class="btn btn_primary header-form-button">
 			</form>
 		</header>
 		
 		<section class="container">
-			<div class="frame" ng-if="vm.data.images.length">
-				<ul class="picGrid clearfix">
-					<li class="picGrid__photo" 
+			<div ng-if="vm.data.images.length">
+				<ul class="picGrid clearfix" >
+					<li class="picGrid-photo" 
 						ng-repeat="image in vm.data.images"
-						ng-class="{picGrid__photo__mod_2x : image.isFeatured===true}"> 
-
-						<img class="picGrid__photo__img" ng-src="{{image.url}}"  />
-						<div class="picGrid__photo__buttons">
-							<button class="btn btn__secondary" ng-click="vm.featureImage($index, image.isFeatured)">
+						ng-class="{picGrid-photo_2x : image.isFeatured===true}"> 
+						<img class="picGrid-photo-img" ng-src="{{image.url}}"  />
+						<div class="picGrid-photo-buttons">
+							<button class="btn btn_secondary" ng-click="vm.featureImage($index, image.isFeatured)">
 								{{ image.isFeatured && '1x' || '2x' }}
 							</button>
-							<button class="btn btn__secondary" ng-click="vm.removeImage($index)">x</button>	
+							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
 						</div>
 					</li>
 				</ul>
 				<form class="meta" ng-submit="saveForm(data)">
-					<input type="text" class="meta__input" 
+					<input type="text" class="meta-input" 
 						ng-model="vm.data.meta.title" />
 					
-					<input type="text" class="meta__input meta__input__mod__caption" 
+					<input type="text" class="meta-input meta-input_caption" 
 						ng-model="vm.data.meta.caption"
-						placeholder="Caption" />
+						placeholder="Add a caption..." />
 					<br><br>
 
-					<input type="submit" value="Create!" class="btn btn__primary" />
+					<input type="submit" value="Create!" class="btn btn_primary" />
 				</form>
 			</div>
-
 			<p class="emptyContent">
 				<a ng-href="{{vm.authLink}}">Sign in</a>
 				to see photos from friends with private accounts
 			</p>
-		</div>
 		</section>
-		
-		<pre>{{vm.data | json}}</pre>
 	</body>
 </html>
 
