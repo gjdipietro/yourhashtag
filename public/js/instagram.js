@@ -1,24 +1,23 @@
 'use strict';
 
+(function() {
 angular.module('instagramService', ['ngCookies'])
   .factory('instagramAPI', instagramAPI);
 
   function instagramAPI ($http, $cookies) {
-    var endPoint;
     var auth;
     var apiUrl;
     var callback;
     var clientId;
-    var callbackString = '&callback=JSON_CALLBACK';
     var auth = '';
     var accessToken;
-    
     var instagram =  {
       setCredentials: setCredentials,
       setAuth: setAuth,
       getAuth: getAuth,
       fetchHashtag: fetchHashtag,
       getAuthLink: getAuthLink,
+      hasAccessToken: hasAccessToken
     }
     return instagram;
 
@@ -31,10 +30,17 @@ angular.module('instagramService', ['ngCookies'])
     function setAuth (accessToken) {
       if (accessToken) {
         auth = 'access_token=' + accessToken;
-        $cookies.put('accessToken', accessToken)
+        $cookies.put('accessToken', accessToken);
       } else {
         auth = 'client_id=' + clientId;
       }
+    }
+
+    function hasAccessToken () {
+      if ($cookies.get('accessToken')) {
+        return true;
+      }
+      return false;
     }
 
     function getAuth () {
@@ -45,7 +51,8 @@ angular.module('instagramService', ['ngCookies'])
     };
 
     function fetchHashtag (hashtag, callback, count) {
-      endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
+      var callbackString = '&callback=JSON_CALLBACK';
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&count=' + count;
       $http.jsonp(endPoint).success(function (response) {
         callback(response.data);
       });
@@ -56,3 +63,4 @@ angular.module('instagramService', ['ngCookies'])
     };
   }
 
+})();

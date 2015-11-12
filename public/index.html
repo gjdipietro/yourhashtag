@@ -6,7 +6,7 @@
 		<title>#YourHashtag</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
 
 		<!--favicons-->
@@ -31,7 +31,9 @@
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		
 		<header class="header">
-			<h1><a href="/" role="button" ng-click="vm.clearForm();" class="logo">{{vm.title}}</a></h1>
+			<h1 class="header-logo">
+				<a href="http://localhost:1337/" target="_self" class="header-logo-type">{{vm.title}}</a>
+			</h1>
 			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
 			      <label class="inputGroup-addon" for="searchHash" id="searchHashLabel">#</label>
@@ -39,7 +41,6 @@
 						name="hashtag" 
 						ng-model="vm.hashtag" 
 						class="input inputGroup-input" 
-						placeholder="Search your hashtag" 
 						aria-describedby="searchHashLabel"
 						autofocus>
 			    </div>
@@ -48,13 +49,13 @@
 		</header>
 		
 		<section class="container">
-			<div ng-if="vm.data.images.length">
-				<ul class="picGrid clearfix" >
-					<li class="picGrid-photo" 
+			<div ng-if="vm.data.images.length" class="collage">
+				<ul class="collage-grid clearfix" >
+					<li class="collage-grid-photo" 
 						ng-repeat="image in vm.data.images"
-						ng-class="{picGrid-photo_2x : image.isFeatured===true}"> 
-						<img class="picGrid-photo-img" ng-src="{{image.url}}"  />
-						<div class="picGrid-photo-buttons">
+						ng-class="{'collage-grid-photo_2x' : image.isFeatured===true}"> 
+						<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
+						<div class="collage-grid-photo-buttons">
 							<button class="btn btn_secondary" ng-click="vm.featureImage($index, image.isFeatured)">
 								{{ image.isFeatured && '1x' || '2x' }}
 							</button>
@@ -62,22 +63,24 @@
 						</div>
 					</li>
 				</ul>
-				<form class="meta" ng-submit="saveForm(data)">
-					<input type="text" class="meta-input" 
+				<form class="collage-meta" ng-submit="vm.saveCollage(vm.data)">
+					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
 					
-					<input type="text" class="meta-input meta-input_caption" 
+					<input type="text" class="collage-meta-input collage-meta-input_caption" 
 						ng-model="vm.data.meta.caption"
 						placeholder="Add a caption..." />
-					<br><br>
 
-					<input type="submit" value="Create!" class="btn btn_primary" />
+					<input type="submit" value="Create!" class="collage-meta-cta btn btn_primary" />
 				</form>
 			</div>
-			<p class="emptyContent">
-				<a ng-href="{{vm.authLink}}">Sign in</a>
-				to see photos from friends with private accounts
-			</p>
+			<div class="initialContent" ng-if="!vm.data.images.length">
+				<p>Search for your hashtag</p> 
+				<p ng-if="!vm.hasAccessToken">
+					<a ng-href="{{vm.authLink}}">Sign in</a>
+					to see photos from friends with private accounts
+				</p>
+			</div>
 		</section>
 	</body>
 </html>
