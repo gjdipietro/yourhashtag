@@ -23,13 +23,13 @@
 		<script src="js/app.js"></script>
 		<script src="js/controller.js"></script>
 		<script src="js/instagram.js"></script>
-
+		<script src="js/vendor/jszip.min.js"></script>
+		<script src="js/vendor/filesaver.min.js"></script>
 		<base href="/">
 	</head>
 	
 
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
-		
 		<header class="header">
 			<h1 class="header-logo">
 				<a href="http://localhost:1337/" target="_self" class="header-logo-type">{{vm.title}}</a>
@@ -46,8 +46,9 @@
 			    </div>
 				<input type="submit" value="Search" class="btn btn_primary header-form-button">
 			</form>
+			<button ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
+
 		</header>
-		
 		<section class="container">
 			<div ng-if="vm.data.images.length" class="collage">
 				<ul class="collage-grid clearfix" >
@@ -56,6 +57,7 @@
 						ng-class="{'collage-grid-photo_2x' : image.isFeatured===true}"> 
 						<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
 						<div class="collage-grid-photo-buttons">
+							<a class="btn btn_secondary" ng-href="{{image.url}}" download="gbxoxo">dl</a>	
 							<button class="btn btn_secondary" ng-click="vm.featureImage($index, image.isFeatured)">
 								{{ image.isFeatured && '1x' || '2x' }}
 							</button>
