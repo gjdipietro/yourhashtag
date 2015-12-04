@@ -62,41 +62,42 @@ function HashtagCtrl ($location, instagramAPI) {
   }
 
   function downloadAllImages(images) {
-    var urls = [
-      'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12345895_1699198440317380_418577934_n.jpg',
-      'https://scontent.cdninstagram.com/hphotos-xat1/t51.2885-15/s640x640/sh0.08/e35/12144228_1660648204205478_424448884_n.jpg',
-      'https://scontent.cdninstagram.com/hphotos-xpa1/t51.2885-15/s640x640/sh0.08/e35/11939465_867846576659579_409069286_n.jpg',
-      'https://scontent.cdninstagram.com/hphotos-xpf1/t51.2885-15/e15/11910536_1664718590477001_2113943493_n.jpg'];
     var zip = new JSZip();
-    var canvas = document.createElement("canvas");
-    var context = canvas.getContext('2d');
-    var i;
-    var blob;
-
-    for (i = 0; i < urls.length; i++) {
-      convertImgToDataURLviaCanvas(urls[i], function(base64Img) {
-        console.log(base64Img);
-        zip.file('image-' +  i, base64Img, {base64: true});
-      });
-    }
-    window.setTimeout(function(){
-      blob = zip.generate({type:'blob'});
-      saveAs(blob, vm.hashtag + '.zip');
-    }, 10000);
+    var urls = images.map(function(image) {
+      return image.url;
+    }, 0);
+    var waiting = urls.length;
     
-    function convertImgToDataURLviaCanvas(url, callback) {
+    for (var i = 0; i < urls.length; i++) {
+      convertImgToDataURLviaCanvas(urls[i], i, finish);
+    }
+    function finish() {
+      waiting--;
+      if (waiting == 0) {
+        saveZip();
+      }
+    }
+    function saveZip() {
+      var blob = zip.generate({type:'blob'});
+      saveAs(blob, vm.hashtag + '.zip');
+    }
+    function convertImgToDataURLviaCanvas(url, count, callback) {
+      var canvas = document.createElement("canvas");
+      var context = canvas.getContext('2d');
       var img = new Image();
       img.crossOrigin = 'Anonymous';
       img.onload = function() {
-          var canvas = document.createElement('canvas');
-          var ctx = canvas.getContext('2d');
-          var dataURL;
-          canvas.height = this.height;
-          canvas.width = this.width;
-          ctx.drawImage(this, 100, 100);
-          dataURL = canvas.toDataURL('image/jpeg', 1.0);
-          callback(dataURL);
-          canvas = null;
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var dataURL;
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this, 0, 0);
+        dataURL = canvas.toDataURL();
+        dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+        zip.file('image_' + count + '.jpg', dataURL, {base64: true});
+        canvas = null;
+        callback();
       };
       img.src = url;
     }
