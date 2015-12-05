@@ -7,6 +7,7 @@ angular.module('hashtag.controller', [])
 HashtagCtrl.$inject = ['$location', 'instagramAPI'];
 
 function HashtagCtrl ($location, instagramAPI) {
+  
   //initialize view model
   var vm = this;
   vm.title = '#yourhashtag';
@@ -16,22 +17,25 @@ function HashtagCtrl ($location, instagramAPI) {
   vm.hashtag = 'gbxoxo';
   vm.authLink = instagramAPI.getAuthLink();
   vm.hasAccessToken = instagramAPI.hasAccessToken();
+  
   //button click handlers
   vm.processForm = processForm;
   vm.clearForm = clearForm;
   vm.removeImage = removeImage;
   vm.featureImage = featureImage;
   vm.saveCollage = saveCollage;
+  
   //init
   instagramAPI.setAuth();
-
+  
+  //App Logic
   if ($location.$$path !== '/') {
     var accessToken = $location.$$path.slice(1);
     instagramAPI.setAuth(accessToken);
     vm.hasAccessToken = instagramAPI.hasAccessToken();;
     $location.path('/');
   }
-  //App Logic
+
   function processForm (hashtag) {
     instagramAPI.fetchHashtag(hashtag,  function(data) {
       vm.data.images = data.map(function (x) {

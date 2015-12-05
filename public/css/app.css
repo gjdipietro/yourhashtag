@@ -122,8 +122,8 @@ h1,h2,h3,h4,h5,h6,strong {
 
 /*header module*/
 .header {
-	background-color: #EEE;
-	border-bottom: 1px solid #CCC;
+	background: #F5F5F5;
+  box-shadow: 0 0 2px #999;
 	margin: 0;
 	padding: 2.5rem 0;
 	text-align: center;
@@ -175,7 +175,7 @@ h1,h2,h3,h4,h5,h6,strong {
 			width: 100%;
 		}
 			.collage-grid-photo-img {
-				border: 1px solid #CCC;
+	  		box-shadow: 1px 1px 2px #999;
     		padding: .125rem;
     		width: 100%;
 			}
