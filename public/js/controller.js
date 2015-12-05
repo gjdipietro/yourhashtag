@@ -29,6 +29,10 @@ function HashtagCtrl ($location, instagramAPI) {
   instagramAPI.setAuth();
   
   //App Logic
+  vm.downloadAllImages = downloadAllImages;
+  
+  //init
+  instagramAPI.setAuth();
   if ($location.$$path !== '/') {
     var accessToken = $location.$$path.slice(1);
     instagramAPI.setAuth(accessToken);
@@ -36,6 +40,7 @@ function HashtagCtrl ($location, instagramAPI) {
     $location.path('/');
   }
 
+  //App Logic
   function processForm (hashtag) {
     instagramAPI.fetchHashtag(hashtag,  function(data) {
       vm.data.images = data.map(function (x) {
@@ -60,6 +65,48 @@ function HashtagCtrl ($location, instagramAPI) {
 
   function featureImage (index, isFeatured) {
     vm.data.images[index].isFeatured = !isFeatured;
+  }
+
+  function downloadAllImages(images) {
+    var zip = new JSZip();
+    var urls = images.map(function(image) {
+      return image.url;
+    }, 0);
+    var waiting = urls.length;
+    
+    for (var i = 0; i < urls.length; i++) {
+      convertImgToDataURLviaCanvas(urls[i], i, finish);
+    }
+    function finish() {
+      waiting--;
+      if (waiting == 0) {
+        saveZip();
+      }
+    }
+    function saveZip() {
+      var blob = zip.generate({type:'blob'});
+      saveAs(blob, vm.hashtag + '.zip');
+    }
+    function convertImgToDataURLviaCanvas(url, count, callback) {
+      var canvas = document.createElement("canvas");
+      var context = canvas.getContext('2d');
+      var img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var dataURL;
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this, 0, 0);
+        dataURL = canvas.toDataURL();
+        dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+        zip.file('image_' + count + '.jpg', dataURL, {base64: true});
+        canvas = null;
+        callback();
+      };
+      img.src = url;
+    }
   }
 
   function saveCollage (data) {
