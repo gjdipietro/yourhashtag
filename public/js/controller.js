@@ -46,7 +46,7 @@ function HashtagCtrl ($location, instagramAPI) {
       vm.data.images = data.map(function (x) {
         return x.images.standard_resolution;
       });
-    }, 50);
+    }, 120);
     vm.data.meta.title = '#' + hashtag;
     vm.title = '#' + hashtag;
   }

@@ -52,7 +52,7 @@ angular.module('instagramService', ['ngCookies'])
 
     function fetchHashtag (hashtag, callback, count) {
       var callbackString = '&callback=JSON_CALLBACK';
-      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&count=' + count;
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&count=' + 120;
       $http.jsonp(endPoint).success(function (response) {
         callback(response.data);
       });
