@@ -168,12 +168,8 @@ h1,h2,h3,h4,h5,h6,strong {
 			list-style:none; 
 			position: relative;
 			width: 50%;
-			width: 49.5%;
-   		margin: .25%;
-		}
-		.collage-grid-photo_2x {
-			margin: 0;
-			width: 100%;
+			width: 9.5%;
+   			margin: .25%;
 		}
 			.collage-grid-photo-img {
 		  		box-shadow: 1px 1px 2px #999;

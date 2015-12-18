@@ -22,7 +22,6 @@ function HashtagCtrl ($location, instagramAPI) {
   vm.processForm = processForm;
   vm.clearForm = clearForm;
   vm.removeImage = removeImage;
-  vm.featureImage = featureImage;
   vm.saveCollage = saveCollage;
   
   //init
@@ -42,11 +41,11 @@ function HashtagCtrl ($location, instagramAPI) {
 
   //App Logic
   function processForm (hashtag) {
-    instagramAPI.fetchHashtag(hashtag,  function(data) {
-      vm.data.images = data.map(function (x) {
+    instagramAPI.fetchHashtag(hashtag,  function(resp) {
+      vm.data.images = resp.map(function (x) {
         return x.images.standard_resolution;
       });
-    }, 120);
+    }, 40);
     vm.data.meta.title = '#' + hashtag;
     vm.title = '#' + hashtag;
   }
@@ -61,10 +60,6 @@ function HashtagCtrl ($location, instagramAPI) {
 
   function removeImage (index) {
     vm.data.images.splice(index, 1);
-  }
-
-  function featureImage (index, isFeatured) {
-    vm.data.images[index].isFeatured = !isFeatured;
   }
 
   function downloadAllImages(images) {

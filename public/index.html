@@ -53,14 +53,10 @@
 			<div ng-if="vm.data.images.length" class="collage">
 				<ul class="collage-grid clearfix" >
 					<li class="collage-grid-photo" 
-						ng-repeat="image in vm.data.images"
-						ng-class="{'collage-grid-photo_2x' : image.isFeatured===true}"> 
+						ng-repeat="image in vm.data.images"> 
 						<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
 						<div class="collage-grid-photo-buttons">
 							<a class="btn btn_secondary" ng-href="{{image.url}}" download="gbxoxo">dl</a>	
-							<button class="btn btn_secondary" ng-click="vm.featureImage($index, image.isFeatured)">
-								{{ image.isFeatured && '1x' || '2x' }}
-							</button>
 							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
 						</div>
 					</li>
