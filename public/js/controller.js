@@ -17,20 +17,18 @@ function HashtagCtrl ($location, instagramAPI) {
   vm.hashtag = 'gbxoxo';
   vm.authLink = instagramAPI.getAuthLink();
   vm.hasAccessToken = instagramAPI.hasAccessToken();
-  
+  vm.nextURL = '';
+
   //button click handlers
   vm.processForm = processForm;
   vm.clearForm = clearForm;
   vm.removeImage = removeImage;
   vm.saveCollage = saveCollage;
-  
+  vm.downloadAllImages = downloadAllImages;
+  vm.loadMore = loadMore;
+
   //init
   instagramAPI.setAuth();
-  
-  //App Logic
-  vm.downloadAllImages = downloadAllImages;
-  
-  //init
   instagramAPI.setAuth();
   if ($location.$$path !== '/') {
     var accessToken = $location.$$path.slice(1);
@@ -42,12 +40,22 @@ function HashtagCtrl ($location, instagramAPI) {
   //App Logic
   function processForm (hashtag) {
     instagramAPI.fetchHashtag(hashtag,  function(resp) {
-      vm.data.images = resp.map(function (x) {
+      vm.nextURL = resp.pagination.next_max_id;
+      vm.data.images = resp.data.map(function (x) {
         return x.images.standard_resolution;
       });
-    }, 40);
+    }, 20);
     vm.data.meta.title = '#' + hashtag;
     vm.title = '#' + hashtag;
+  }
+
+  function loadMore (nextUrl) {
+    instagramAPI.fetchHashtag(vm.hashtag,  function(resp) {
+      vm.nextURL = resp.pagination.next_max_id;
+      vm.data.images = resp.data.map(function (x) {
+        return x.images.standard_resolution;
+      });
+    }, 20, nextUrl);
   }
 
   function clearForm() {

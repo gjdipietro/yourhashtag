@@ -50,11 +50,12 @@ angular.module('instagramService', ['ngCookies'])
       return auth;
     };
 
-    function fetchHashtag (hashtag, callback) {
+    function fetchHashtag (hashtag, callback, count, next) {
       var callbackString = '&callback=JSON_CALLBACK';
-      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&count=' + count + '&max_tag_id=' + next;
+      console.log(endPoint)
       $http.jsonp(endPoint).success(function (response) {
-        callback(response.data);
+        callback(response);
       });
     };
 

@@ -46,21 +46,22 @@
 			    </div>
 				<input type="submit" value="Search" class="btn btn_primary header-form-button">
 			</form>
-			<button ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
-
 		</header>
 		<section class="container">
 			<div ng-if="vm.data.images.length" class="collage">
 				<ul class="collage-grid clearfix" >
-					<li class="collage-grid-photo" 
-						ng-repeat="image in vm.data.images"> 
+					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
 						<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
 						<div class="collage-grid-photo-buttons">
 							<a class="btn btn_secondary" ng-href="{{image.url}}" download="gbxoxo">dl</a>	
 							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
 						</div>
 					</li>
+					<li class="collage-grid-photo">
+						<button ng-click="vm.loadMore(vm.nextURL)">Load More</button>
+					</li>
 				</ul>
+
 				<form class="collage-meta" ng-submit="vm.saveCollage(vm.data)">
 					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
@@ -78,6 +79,10 @@
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
 				</p>
+			</div>
+
+			<div>
+				<button ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
 			</div>
 		</section>
 	</body>
