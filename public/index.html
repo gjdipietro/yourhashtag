@@ -51,9 +51,10 @@
 			<div ng-if="vm.data.images.length" class="collage">
 				<ul class="collage-grid clearfix" >
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
-						<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
+						<div class="collage-grid-photo-wrap">
+							<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
+						</div>
 						<div class="collage-grid-photo-buttons">
-							<a class="btn btn_secondary" ng-href="{{image.url}}" download="gbxoxo">dl</a>	
 							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
 						</div>
 					</li>
@@ -65,16 +66,10 @@
 				<form class="collage-meta" ng-submit="vm.saveCollage(vm.data)">
 					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
-					
-					<input type="text" class="collage-meta-input collage-meta-input_caption" 
-						ng-model="vm.data.meta.caption"
-						placeholder="Add a caption..." />
-
 					<input type="submit" value="Create!" class="collage-meta-cta btn btn_primary" />
 				</form>
 			</div>
 			<div class="initialContent" ng-if="!vm.data.images.length">
-				<p>Search for your hashtag</p> 
 				<p ng-if="!vm.hasAccessToken">
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
