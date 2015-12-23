@@ -50,12 +50,26 @@ angular.module('instagramService', ['ngCookies'])
       return auth;
     };
 
-    function fetchHashtag (hashtag, callback, count, next) {
+    function fetchHashtag (hashtag, callback, next, allImages) {
       var callbackString = '&callback=JSON_CALLBACK';
-      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&count=' + count + '&max_tag_id=' + next;
-      console.log(endPoint)
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString + '&max_tag_id=' + next;
+      var i;
+      if (!allImages) {
+        var allImages = [];
+      }
+      
       $http.jsonp(endPoint).success(function (response) {
-        callback(response);
+        if (typeof response.pagination.next_max_id == 'undefined') {
+          for (i = 0; i < response.data.length; i++){
+            allImages.push(response.data[i]);
+          }
+          callback(allImages);
+        } else {
+          for (i = 0; i < response.data.length; i++){
+            allImages.push(response.data[i]);
+          }
+          fetchHashtag(hashtag, callback, response.pagination.next_max_id, allImages)
+        }
       });
     };
 
@@ -63,5 +77,4 @@ angular.module('instagramService', ['ngCookies'])
         return 'https://instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
     };
   }
-
-})();
+})()
