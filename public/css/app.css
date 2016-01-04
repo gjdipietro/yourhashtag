@@ -148,6 +148,7 @@ h1,h2,h3,h4,h5,h6,strong {
 /* picture gride module */
 .collage {
 	padding: 4rem;
+	position: relative;
 }
 	.collage-grid {
 		margin:  0;
@@ -157,7 +158,6 @@ h1,h2,h3,h4,h5,h6,strong {
 			float:left; 
 			list-style:none; 
 			position: relative;
-			width: 50%;
 			width: 9.5%;
    			margin: .25%;
 		}
@@ -175,7 +175,16 @@ h1,h2,h3,h4,h5,h6,strong {
 				right: 0;
 				top: 0;
 			}
-	
+
+.collage_staggered {
+
+}
+.collage_scatter {
+
+}
+.collage_full { 
+
+}
 
 
 .initialContent {
@@ -185,6 +194,3 @@ h1,h2,h3,h4,h5,h6,strong {
 	margin-top: 48px;
 }
 
-
-
-pre {color:#333;}

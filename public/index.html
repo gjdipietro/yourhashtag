@@ -49,7 +49,7 @@
 		</header>
 		<section class="container">
 			<div ng-if="vm.data.images.length" class="collage">
-				<ul class="collage-grid clearfix" >
+				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
 						<div class="collage-grid-photo-wrap">
 							<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
@@ -66,6 +66,9 @@
 					
 					<input type="radio" id="style2" value="2" name="style" ng-model="vm.data.meta.style">
 					<label for="style2" >Style 2</label>
+
+					<input type="radio" id="style3" value="3" name="style" ng-model="vm.data.meta.style">
+					<label for="style3" >Style 3</label>
 
 					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
