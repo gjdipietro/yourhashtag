@@ -9,10 +9,10 @@ HashtagCtrl.$inject = ['$location', 'instagramAPI'];
 function HashtagCtrl ($location, instagramAPI) {
   //initialize view model
   var vm = this;
-  vm.title = '#yourhashtag';
   vm.data = {};
   vm.data.images = {};
   vm.data.meta = {};
+  vm.data.meta.style = 1;
   vm.hashtag = 'gbxoxo';
   vm.authLink = instagramAPI.getAuthLink();
   vm.hasAccessToken = instagramAPI.hasAccessToken();
@@ -42,14 +42,12 @@ function HashtagCtrl ($location, instagramAPI) {
     });
 
     vm.data.meta.title = '#' + hashtag;
-    vm.title = '#' + hashtag;
   }
 
   function clearForm() {
     $location.path('/');
-    vm.title = '#yourhashtag';
     vm.data.images = {};
-    vm.data.meta = {};
+    vm.data.meta.title = '';
     vm.hashtag = '';
   }
 
