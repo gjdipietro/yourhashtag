@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>#YourHashtagg</title>
+		<title>#YourHashtag</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
@@ -60,15 +60,6 @@
 				</ul>
 
 				<form ng-submit="vm.saveCollage(vm.data)">
-					<input type="radio" id="style1" value="1" name="style" ng-model="vm.data.meta.style">
-					<label for="style1" >Style 1</label>
-					
-					<input type="radio" id="style2" value="2" name="style" ng-model="vm.data.meta.style">
-					<label for="style2" >Style 2</label>
-
-					<input type="radio" id="style3" value="3" name="style" ng-model="vm.data.meta.style">
-					<label for="style3" >Style 3</label>
-
 					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
 					
