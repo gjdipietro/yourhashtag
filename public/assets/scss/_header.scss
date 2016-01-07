@@ -1,0 +1,33 @@
+/*header module*/
+.header {
+	background: #FFF;
+	box-shadow: 0 0 2px #999;
+	border-bottom: 1px solid #F5F5F5;
+	margin: 0;
+	padding: 2.5rem 0;
+	text-align: center;
+}
+	.header-logo {
+		font-size: 2.5rem;
+		margin: 0 0 1rem 0;
+	}
+		.header-logo-type {
+			color: #e3262e;
+			text-decoration: none;
+		}
+			.header-logo-type:hover {
+				color: #ab171e;
+			}
+	.header-form {
+		width: 500px;
+    	margin: 0 auto;
+	}
+		.header-form-input {
+			width: 80%;
+			float: left;
+		}
+		.header-form-button {
+		    float: left;
+		    height: 32px;
+			width: 20%;
+		}

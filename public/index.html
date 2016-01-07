@@ -31,7 +31,7 @@
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		<header class="header">
 			<h1 class="header-logo">
-				<a href="http://localhost:1337/" target="_self" class="header-logo-type">#yourhashtag</a>
+				<a href="/" target="_self" class="header-logo-type">#YourHashtag</a>
 			</h1>
 			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
@@ -48,7 +48,7 @@
 		</header>
 		<section class="container">
 			<div ng-if="vm.data.images.length" class="collage">
-				<ul class="collage-grid clearfix" >
+				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
 						<div class="collage-grid-photo-wrap">
 							<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
@@ -59,23 +59,32 @@
 					</li>
 				</ul>
 
-				<form class="collage-meta" ng-submit="vm.saveCollage(vm.data)">
+				<form ng-submit="vm.saveCollage(vm.data)">
+					<input type="radio" id="style1" value="1" name="style" ng-model="vm.data.meta.style">
+					<label for="style1" >Style 1</label>
+					
+					<input type="radio" id="style2" value="2" name="style" ng-model="vm.data.meta.style">
+					<label for="style2" >Style 2</label>
+
+					<input type="radio" id="style3" value="3" name="style" ng-model="vm.data.meta.style">
+					<label for="style3" >Style 3</label>
+
 					<input type="text" class="collage-meta-input" 
 						ng-model="vm.data.meta.title" />
-					<input type="submit" value="Create!" class="collage-meta-cta btn btn_primary" />
+					
+					<input  class="btn btn_primary" type="submit" value="Create!"  />
+					<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
 				</form>
 			</div>
+
 			<div class="initialContent" ng-if="!vm.data.images.length">
 				<p ng-if="!vm.hasAccessToken">
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
 				</p>
 			</div>
-
-			<div>
-				<button ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
-			</div>
 		</section>
+
 	</body>
 </html>
 
