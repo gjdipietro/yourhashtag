@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>#YourHashtag</title>
+		<title>#YourHashtagg</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
@@ -13,18 +13,17 @@
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 		<!--css-->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="/assets/css/app.css">
 
 		<!--js-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-cookies.min.js"></script>		
 
-		<script src="js/app.js"></script>
-		<script src="js/controller.js"></script>
-		<script src="js/instagram.js"></script>
-		<script src="js/vendor/jszip.min.js"></script>
-		<script src="js/vendor/filesaver.min.js"></script>
+		<script src="/assets/js/app.js"></script>
+		<script src="/assets/js/controller.js"></script>
+		<script src="/assets/js/instagram.js"></script>
+		<script src="/assets/js/vendor/jszip.min.js"></script>
+		<script src="/assets/js/vendor/filesaver.min.js"></script>
 		<base href="/">
 	</head>
 	
@@ -32,7 +31,7 @@
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		<header class="header">
 			<h1 class="header-logo">
-				<a href="http://localhost:1337/" target="_self" class="header-logo-type">{{vm.title}}</a>
+				<a href="http://localhost:1337/" target="_self" class="header-logo-type">#yourhashtag</a>
 			</h1>
 			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
