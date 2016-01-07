@@ -33,3 +33,4 @@ Thumbs.db
 # Internal
 mocks
 todo.txt
+.gitignore
