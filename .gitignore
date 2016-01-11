@@ -9,7 +9,6 @@ config
 #sass stuff
 .sass-cache
 *.css.map
-config.rb
 
 # Numerous always-ignore extensions
 *.diff
