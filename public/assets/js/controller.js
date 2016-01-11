@@ -2,7 +2,8 @@
 (function() {
   'use strict';
 
-  angular.module('hashtag.controller')
+  angular
+    .module('hashtag.controller', [])
     .controller('HashtagCtrl', HashtagCtrl);
 
   HashtagCtrl.$inject = ['$location', 'instagramAPI'];
@@ -29,7 +30,7 @@
     if ($location.$$path !== '/') {
       var accessToken = $location.$$path.slice(1);
       instagramAPI.setAuth(accessToken);
-      vm.hasAccessToken = instagramAPI.hasAccessToken();;
+      vm.hasAccessToken = instagramAPI.hasAccessToken();
       $location.path('/');
     }
 
@@ -61,13 +62,12 @@
         return image.url;
       }, 0);
       var waiting = urls.length;
-      
       for (var i = 0; i < urls.length; i++) {
         convertImgToDataURLviaCanvas(urls[i], i, finish);
       }
       function finish() {
         waiting--;
-        if (waiting == 0) {
+        if (waiting === 0) {
           saveZip();
         }
       }
@@ -76,7 +76,7 @@
         saveAs(blob, vm.hashtag + '.zip');
       }
       function convertImgToDataURLviaCanvas(url, count, callback) {
-        var canvas = document.createElement("canvas");
+        var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
         var img = new Image();
         img.crossOrigin = 'Anonymous';

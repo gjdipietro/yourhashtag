@@ -11,7 +11,7 @@
   angular
     .module('hashtag', [
       'hashtag.controller',
-      'instagramService',
+      'hashtag.instagramService',
       'ngCookies'
     ])
     .constant('instagramApiConfig', credentials)

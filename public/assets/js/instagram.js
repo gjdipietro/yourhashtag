@@ -2,11 +2,11 @@
 (function() {
   'use strict';
 
-  angular.module('instagramService', ['ngCookies'])
+  angular
+    .module('hashtag.instagramService', ['ngCookies'])
     .factory('instagramAPI', instagramAPI);
 
   function instagramAPI ($http, $cookies) {
-    var auth;
     var apiUrl;
     var callback;
     var clientId;
@@ -19,7 +19,7 @@
       fetchHashtag: fetchHashtag,
       getAuthLink: getAuthLink,
       hasAccessToken: hasAccessToken
-    }
+    };
     return instagram;
 
     function setCredentials (instagramApiConfig) {
@@ -49,7 +49,7 @@
         auth = 'access_token=' + $cookies.get('accessToken');
       }
       return auth;
-    };
+    }
 
     function fetchHashtag (hashtag, callback, next, allImages) {
       var callbackString = '&callback=JSON_CALLBACK';
