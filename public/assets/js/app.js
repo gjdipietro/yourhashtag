@@ -1,7 +1,6 @@
 /*jslint browser:true */
-'use strict';
-
 (function() {
+  'use strict';
   var credentials = {
     apiUrl: 'https://api.instagram.com/v1/',
     clientId: '93d7311401a74e1b8c1a3b9fa196ea20',

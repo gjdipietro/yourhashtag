@@ -1,8 +1,9 @@
-'use strict';
 
 (function() {
-angular.module('instagramService', ['ngCookies'])
-  .factory('instagramAPI', instagramAPI);
+  'use strict';
+
+  angular.module('instagramService', ['ngCookies'])
+    .factory('instagramAPI', instagramAPI);
 
   function instagramAPI ($http, $cookies) {
     var auth;
@@ -76,4 +77,4 @@ angular.module('instagramService', ['ngCookies'])
         return 'https://instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
     };
   }
-})()
+})();
