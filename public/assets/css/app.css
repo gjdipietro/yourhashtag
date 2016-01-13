@@ -444,97 +444,62 @@ html {
   font-size: 62.5%;
 }
 
-/* line 9, ../scss/_helpers.scss */
+/* line 10, ../scss/_helpers.scss */
 body {
-  background: #F3F3F1;
+  background: #f5fafc;
   font-size: 1.6rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-/* line 14, ../scss/_helpers.scss */
+/* line 16, ../scss/_helpers.scss */
 h1, h2, h3, h4, h5, h6, strong {
   font-weight: 700;
 }
 
-/* line 18, ../scss/_helpers.scss */
+/* line 20, ../scss/_helpers.scss */
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /* line 24, ../scss/_helpers.scss */
+a {
+  color: #449baa;
+  border-bottom: 2px solid #ebf2fa;
+  transition: border-color .3s ease-in-out, color .3s ease-in-out;
+  text-decoration: none;
+}
+
+/* line 31, ../scss/_helpers.scss */
+a:hover {
+  color: #fdc23e;
+  border-bottom: 2px solid #fdc23e;
+}
+
+/* line 36, ../scss/_helpers.scss */
 .container {
   margin: 0 auto;
   max-width: 1500px;
   max-width: 150rem;
 }
 
-/* line 29, ../scss/_helpers.scss */
+/* line 42, ../scss/_helpers.scss */
 .clearfix {
   overflow: auto;
   zoom: 1;
 }
 
-/* line 33, ../scss/_helpers.scss */
+/* line 47, ../scss/_helpers.scss */
 .pull-left {
   float: left;
 }
 
-/* line 36, ../scss/_helpers.scss */
+/* line 51, ../scss/_helpers.scss */
 .pull-right {
   float: right;
 }
 
-/*header module*/
-/* line 2, ../scss/_header.scss */
-.header {
-  background: #FFF;
-  box-shadow: 0 0 2px #999;
-  border-bottom: 1px solid #F5F5F5;
-  margin: 0;
-  padding: 2.5rem 0;
-  text-align: center;
-}
-
-/* line 10, ../scss/_header.scss */
-.header-logo {
-  font-size: 2.5rem;
-  margin: 0 0 1rem 0;
-}
-
-/* line 14, ../scss/_header.scss */
-.header-logo-type {
-  color: #e3262e;
-  text-decoration: none;
-}
-
-/* line 18, ../scss/_header.scss */
-.header-logo-type:hover {
-  color: #ab171e;
-}
-
-/* line 21, ../scss/_header.scss */
-.header-form {
-  width: 500px;
-  margin: 0 auto;
-}
-
-/* line 25, ../scss/_header.scss */
-.header-form-input {
-  width: 80%;
-  float: left;
-}
-
-/* line 29, ../scss/_header.scss */
-.header-form-button {
-  float: left;
-  height: 32px;
-  width: 20%;
-}
-
 /* Buttons */
-/* line 2, ../scss/_buttons.scss */
+/* line 4, ../scss/_buttons.scss */
 .btn {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
@@ -543,47 +508,99 @@ h1, h2, h3, h4, h5, h6, strong {
   white-space: nowrap;
 }
 
-/* line 9, ../scss/_buttons.scss */
+/* line 11, ../scss/_buttons.scss */
 .btn_primary {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#c11a22), to(#ab171e));
-  background-image: -webkit-linear-gradient(#c11a22, #ab171e);
-  background-image: linear-gradient(#c11a22, #ab171e);
-  background-color: #ab171e;
+  background-image: linear-gradient(#2c5168, #244356);
+  background-color: #244356;
   border: 1px solid;
-  border-bottom-color: #95141a;
-  border-left-color: #c11a22;
-  border-right-color: #c11a22;
-  border-top-color: #ab171e;
-  color: #FFF;
+  border-bottom-color: #1c3544;
+  border-left-color: #2c5168;
+  border-right-color: #2c5168;
+  border-top-color: #244356;
+  color: white;
 }
 
-/* line 23, ../scss/_buttons.scss */
+/* line 22, ../scss/_buttons.scss */
 .btn_secondary {
-  background: -webkit-linear-gradient(white, #f0f0f0);
-  background: -o-linear-gradient(white, #f0f0f0);
   background: linear-gradient(#ffffff, #f0f0f0);
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   color: #5f5f5f;
 }
 
+/* line 1, ../scss/_typography.scss */
+p {
+  color: #244356;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+/*header module*/
+/* line 4, ../scss/_header.scss */
+.header {
+  background: #FFF;
+  box-shadow: 0 0 2px #cee6f0;
+  border-bottom: 1px solid #f5fafc;
+  margin: 0 0 2.5rem 0;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+/* line 12, ../scss/_header.scss */
+.header-logo {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+
+/* line 16, ../scss/_header.scss */
+.header-logo-type {
+  border: none;
+  color: #ff7761;
+  text-decoration: none;
+}
+
+/* line 21, ../scss/_header.scss */
+.header-logo-type:hover {
+  border: none;
+  color: #ff4b2e;
+  text-decoration: none;
+  transition: .2s color ease-out;
+}
+
+/* line 27, ../scss/_header.scss */
+.header-form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+/* line 31, ../scss/_header.scss */
+.header-form-input {
+  width: 80%;
+  float: left;
+}
+
+/* line 35, ../scss/_header.scss */
+.header-form-button {
+  float: left;
+  height: 32px;
+  width: 20%;
+}
+
 /* Input module */
-/* line 2, ../scss/_formInput.scss */
+/* line 5, ../scss/_formInput.scss */
 .input {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border: 1px solid #ccc;
+  border: 1px solid #ebf2fa;
   color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 20px;
   height: 32px;
   padding: 6px 0 6px 4px;
 }
 
-/* Input Group */
 /* line 15, ../scss/_formInput.scss */
 .inputGroup {
   position: relative;
@@ -616,18 +633,18 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 /* picture gride module */
-/* line 2, ../scss/_collage.scss */
+/* line 5, ../scss/_collage.scss */
 .collage {
   padding: 4rem;
 }
 
-/* line 5, ../scss/_collage.scss */
+/* line 8, ../scss/_collage.scss */
 .collage-grid {
   margin: 0;
   padding: 0;
 }
 
-/* line 9, ../scss/_collage.scss */
+/* line 12, ../scss/_collage.scss */
 .collage-grid-photo {
   float: left;
   list-style: none;
@@ -637,31 +654,30 @@ h1, h2, h3, h4, h5, h6, strong {
   margin: .25%;
 }
 
-/* line 17, ../scss/_collage.scss */
+/* line 20, ../scss/_collage.scss */
 .collage-grid-photo-img {
   box-shadow: 1px 1px 2px #999;
   padding: .125rem;
   background: white;
   border: 6px solid white;
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 
-/* line 26, ../scss/_collage.scss */
+/* line 28, ../scss/_collage.scss */
 .collage-grid-photo-buttons {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-/* line 31, ../scss/_collage.scss */
+/* line 33, ../scss/_collage.scss */
 .collage-meta {
   margin: 20px auto;
   text-align: center;
 }
 
-/* line 35, ../scss/_collage.scss */
+/* line 37, ../scss/_collage.scss */
 .collage-meta-input {
   border: none;
   background: transparent;
@@ -675,14 +691,14 @@ h1, h2, h3, h4, h5, h6, strong {
   margin-bottom: 1rem;
 }
 
-/* line 47, ../scss/_collage.scss */
+/* line 49, ../scss/_collage.scss */
 .collage-meta-input_caption {
   color: #666;
   font-size: 2.5rem;
   font-weight: 400;
 }
 
-/* line 52, ../scss/_collage.scss */
+/* line 54, ../scss/_collage.scss */
 .collage-meta-cta {
   margin-top: 3rem;
 }
