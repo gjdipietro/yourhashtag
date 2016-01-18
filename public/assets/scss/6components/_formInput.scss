@@ -1,10 +1,10 @@
-/* Input module */
+/*------------------------------------*\
+    #INPUT STYLES
+\*------------------------------------*/
 .input {
-	-webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border: 1px solid #ccc;
+  border: 1px solid $grey;
   color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-family: $sanserif;
   font-size: 16px;
   line-height: 20px;
   height: 32px;
@@ -12,17 +12,17 @@
 }
 
 .inputGroup {
-  position: relative;
-  display: table;
-  border-collapse: separate;
+    position: relative;
+    display: table;
+    border-collapse: separate;
 }
-	.inputGroup-addon {
-		position: absolute;
+  .inputGroup-addon {
+    position: absolute;
     top: 6px;
     left: 12px;
     z-index: 100;
-	}
-	.inputGroup-input {
+  }
+  .inputGroup-input {
     display: table-cell;
     position: relative;
     z-index: 2;
@@ -35,4 +35,4 @@
     width: 100%;
     margin-bottom: 0;
     padding-left: 30px;
-	}
+  }

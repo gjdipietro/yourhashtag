@@ -1,4 +1,7 @@
 /* picture gride module */
+
+
+
 .collage {
 	padding: 4rem;
 }
@@ -15,13 +18,12 @@
    			margin: .25%;
 		}
 			.collage-grid-photo-img {
-		  		box-shadow: 1px 1px 2px #999;
-	    		padding: .125rem;
-				background: white;
-			    border: 6px solid white;
-			    -webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.2);
-			    box-shadow: 0 1px 6px rgba(0,0,0,0.2);
-	    		width: 100%;
+        box-shadow: 1px 1px 2px #999;
+        padding: .125rem;
+        background: white;
+        border: 6px solid white;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+        width: 100%;
 			}
 			.collage-grid-photo-buttons {
 				position: absolute;

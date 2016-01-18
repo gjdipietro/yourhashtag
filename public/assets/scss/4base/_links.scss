@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #LINK STYLES
+\*------------------------------------*/
+
+a {
+  color: $link_color;
+  border-bottom: 2px solid $grey;
+  transition: border-color .3s ease-in-out, color .3s ease-in-out;
+  text-decoration: none;
+}
+a:hover {
+  color: $link_hover_color;
+  border-bottom: 2px solid $link_hover_color
+}

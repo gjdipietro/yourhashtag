@@ -52,30 +52,33 @@
 
 
 /* ## SETTINGS ## */
-@import 'settings/variables';
+@import '1settings/variables';
 
 /* ## TOOLS ## */
 
 /* ## GENERIC ## */
-@import 'generic/normalize';
-@import 'generic/typecsset';
-@import 'generic/boxsizing';
+@import '3generic/boxsizing';
+@import '3generic/normalize';
+@import '3generic/typecsset';
 
 /* ## BASE ## */
-@import 'base/base';
+@import '4base/base';
+@import '4base/links';
+@import '4base/typography';
 
 /* ## OBJECTS ## */
-@import 'objects/container';
-@import 'objects/clearfix';
+@import '5objects/container';
+@import '5objects/clearfix';
 
 
 /* ## COMPONENTS ## */
-@import 'components/header';
-@import 'components/collage';
-@import 'components/buttons';
-@import 'components/formInput';
+@import '6components/header';
+@import '6components/collage';
+@import '6components/buttons';
+@import '6components/formInput';
 
 
 /* ## TRUMPS ## */
- @import 'trumps/floats';
- @import 'trumps/widths';
+@import '7trumps/floats';
+@import '7trumps/widths';
+
