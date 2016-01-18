@@ -1,9 +1,81 @@
-@import 'normalize';
-@import 'helpers';
-@import 'variables';
+/*------------------------------------*\
+    #YourHashtag
+\*------------------------------------*/
 
-@import 'header';
-@import 'buttons';
+/**
+## SETTINGS ##
+   * Defaults, 
+   * Globals, 
+   * Colors, 
+   * Responsive breakpoints
 
-@import 'formInput';
-@import 'collage';
+## TOOLS ##
+   * Functions, 
+   * Mixins, 
+   * Responsive tooling, 
+
+## GENERIC ##
+   * Normalize/reset, 
+   * Box-sizing, 
+   * Shared global commonalities, 
+
+## BASE ##
+   * Page level styles 
+   * Headings, 
+   * Type
+   * Links
+   * Lists
+   * Images
+   * Quotes 
+
+## OBJECTS ##
+   * Wrappers and constraints
+   * Buttons, 
+   * Laout
+   * Box
+   * Media object
+
+## COMPONENTS ##
+   * Page head 
+   * Page Footer, 
+   * Buttons
+   * Boxes
+   * Sprites
+
+## TRUMPS ##
+   * Clearfix
+   * Width helper, 
+   * Spacing
+   * Show/Hide
+*/
+
+
+
+/* ## SETTINGS ## */
+@import 'settings/variables';
+
+/* ## TOOLS ## */
+
+/* ## GENERIC ## */
+@import 'generic/normalize';
+@import 'generic/typecsset';
+@import 'generic/boxsizing';
+
+/* ## BASE ## */
+@import 'base/base';
+
+/* ## OBJECTS ## */
+@import 'objects/container';
+@import 'objects/clearfix';
+
+
+/* ## COMPONENTS ## */
+@import 'components/header';
+@import 'components/collage';
+@import 'components/buttons';
+@import 'components/formInput';
+
+
+/* ## TRUMPS ## */
+ @import 'trumps/floats';
+ @import 'trumps/widths';
