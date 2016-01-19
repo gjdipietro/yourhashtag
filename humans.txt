@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Greg DiPietro -- Front End Developer -- @hardboiledgregs
+
+# THANKS
+
+    Barb DiPietro for  the idea!
+
+# TECHNOLOGY COLOPHON
+
+    NodeJS, MongoDb, Grunt, ITCSS methodology, BEM CSS
+
+    Vendor JS: Angular, Filesaver, jszip,
+    Vendor CSS: normalize, typecsset
+
+    https://github.com/gjdipietro/yourhashtag

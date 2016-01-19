@@ -4,6 +4,7 @@ node_modules
 
 # Secret directory
 config
+build
 
 
 #sass stuff

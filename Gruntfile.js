@@ -11,7 +11,22 @@ module.exports = function(grunt) {
 	      },
 	      files: ['build/**/*'],
 			},
+      css: {
+        files: '**/*.scss',
+        tasks: ['sass']
+      }
 		},
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'public/assets/css/app.css' : 'public/assets/scss/app.scss'
+        }
+      }
+    }, 
 
     autoprefixer: {
       options: {
@@ -33,6 +48,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
