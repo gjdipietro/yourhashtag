@@ -6,12 +6,11 @@
 	margin: 0 auto;
 	max-width: 1500px;
   margin: 0 auto;
-  padding-right: $unit--small;
-  padding-left:  $unit--small;
+  padding-right: $unit_small;
+  padding-left:  $unit_small;
 
   @media screen and (min-width: $bp1) {
   	padding-right: $unit;
 		padding-left:  $unit;
-		background: red;
   }
 }

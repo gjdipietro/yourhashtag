@@ -9,17 +9,27 @@ $orange: #FDC23E;
 $blue: #449BAA;
 $salmon: #FF7761;
 $darkBlue: #244356;
-$grey: #EBF2FA;
-$white: #FFF;
+$lightBlue: #F5FAFC;
+$white: #FFFFFF;
+$lightGrey: #F5F5F5;
+$mediumGrey: #DDDDDD;
+$darkGrey: #444444;
 
-
-// specific colors;
-$primaryBtn_color: #000;
-$secondaryBtn_color: #000;
+//Global settings
 $brand_color: $blue;
+$background: $lightBlue;
+
+// Button Colors;
+$primaryBtn_bgcolor: $darkBlue;
+$primaryBtn_txtcolor: $white;
+$secondaryBtn_bgcolor: $lightGrey;
+$secondaryBtn_txtcolor: $darkGrey;
+
+
+//Link colors
 $link_color: $blue;
 $link_color_hover: $orange;
-$background: #F5FAFC;
+$link_border_color: $lightGrey;
 
 
 //spacing

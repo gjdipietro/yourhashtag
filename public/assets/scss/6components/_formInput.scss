@@ -2,8 +2,9 @@
     #INPUT STYLES
 \*------------------------------------*/
 .input {
-  border: 1px solid $grey;
-  color: #333;
+  border: 1px solid $mediumGrey;
+  box-shadow: 1px 2px 1px $lightGrey inset;
+  color: $darkGrey;
   font-family: $sanserif;
   font-size: 16px;
   line-height: 20px;
