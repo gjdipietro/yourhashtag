@@ -1,56 +1,27 @@
 /* picture gride module */
 
-
-
-.collage {
-	padding: 4rem;
+.collage-grid {
+	margin:  0;
+	@include sizing(padding, 0, 0, $unit-large, 0);
 }
-	.collage-grid {
-		margin:  0;
-		padding: 0;
+	.collage-grid-photo {
+		float: left; 
+		list-style:none; 
+		position: relative;
+		width: 32%;
+		margin: .25%;
 	}
-		.collage-grid-photo {
-			float:left; 
-			list-style:none; 
-			position: relative;
-			width: 50%;
-			width: 9.5%;
-   			margin: .25%;
+		.collage-grid-photo-img {
+      box-shadow: 1px 1px 2px #999;
+      padding: .125rem;
+      background: $white;
+      border: 6px solid $white;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+      width: 100%;
 		}
-			.collage-grid-photo-img {
-        box-shadow: 1px 1px 2px #999;
-        padding: .125rem;
-        background: white;
-        border: 6px solid white;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.2);
-        width: 100%;
-			}
-			.collage-grid-photo-buttons {
-				position: absolute;
-				right: 0;
-				top: 0;
-			}
-	.collage-meta {
-		margin: 20px auto; 
-		text-align: center;
-	}
-		.collage-meta-input {
-			border: none; 
-			background: transparent; 
-			box-shadow: none;
-			color: #333;
-			display: block;
-			font-size: 3rem;
-			font-weight: 700;
-			text-align: center; 
-			width: 100%;
-			margin-bottom: 1rem;
+		.collage-grid-photo-buttons {
+			position: absolute;
+			right: 0;
+			top: 0;
 		}
-		.collage-meta-input_caption {
-			color: #666;
-			font-size: 2.5rem;
-			font-weight: 400;
-		}
-		.collage-meta-cta {
-			margin-top: 3rem;
-		}
+

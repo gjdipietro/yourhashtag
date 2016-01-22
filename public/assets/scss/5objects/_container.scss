@@ -14,3 +14,10 @@
 		padding-left:  $unit;
   }
 }
+
+
+.typeContainer {
+    margin-left: auto;
+    margin-right: auto;
+    @include sizing(max-width, 60rem);
+}

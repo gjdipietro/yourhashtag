@@ -2,8 +2,6 @@
     #GLOBAL SETTINGS
 \*------------------------------------*/
 
-
-
 //base colors
 $orange: #FDC23E;
 $blue: #449BAA;
@@ -33,16 +31,19 @@ $link_border_color: $lightGrey;
 
 
 //spacing
-$unit_large: 48px;
-$unit: 24px;
-$unit_small: 12px;
-$unit_tiny: 6px;
+$unit_large: 4.8rem;
+$unit: 2.4rem;
+$unit_small: 1.2rem;
+$unit_tiny: .6rem;
 
 
 //fonts & type
 $sanserif: 'Roboto', sans-serif;
 $light: 400;
 $heavy: 700;
+
+//Input Heights
+$inputHeight: 32px;
 
 
 //break points

@@ -2,7 +2,7 @@
 
 
 .header {
-	background: #FFF;
+	background: $white;
 	box-shadow: 0 0 2px darken($background, 10%);
 	border-bottom: 1px solid $background;
 	margin: 0 0 2.5rem 0;
@@ -34,8 +34,6 @@
 			float: left;
 		}
 		.header-form-button {
-			float: left;
-			height: 32px;
 			width: 20%;
 		}
 

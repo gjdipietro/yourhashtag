@@ -8,32 +8,29 @@
   font-family: $sanserif;
   font-size: 16px;
   line-height: 20px;
-  height: 32px;
+  height: $inputHeight;
   padding: 6px 0 6px 4px;
 }
 
 .inputGroup {
-    position: relative;
-    display: table;
-    border-collapse: separate;
+  display: table;
+  border-collapse: separate;
+  position: relative;
 }
-  .inputGroup-addon {
-    position: absolute;
-    top: 6px;
-    left: 12px;
-    z-index: 100;
-  }
+  
   .inputGroup-input {
     display: table-cell;
-    position: relative;
-    z-index: 2;
     float: left;
-    width: 100%;
-    margin-bottom: 0;
-    position: relative;
-    z-index: 2;
-    float: left;
-    width: 100%;
+    height: $inputHeight;
     margin-bottom: 0;
     padding-left: 30px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+  .inputGroup-addbefore {
+    left: 12px;
+    position: absolute;
+    top: 6px;
+    z-index: 100;
   }

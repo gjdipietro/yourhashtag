@@ -34,11 +34,11 @@
 			</h1>
 			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
-			      <label class="inputGroup-addon" for="searchHash" id="searchHashLabel">#</label>
-			      <input type="text" id="searchHash"
+			      	<label class="inputGroup-addbefore" for="searchHash" id="searchHashLabel">#</label>
+			      	<input type="text" id="searchHash"
 						name="hashtag" 
 						ng-model="vm.hashtag" 
-						class="input inputGroup-input" 
+						class="input inputGroup-input header-form-input" 
 						aria-describedby="searchHashLabel"
 						autofocus>
 			    </div>
@@ -46,7 +46,7 @@
 			</form>
 		</header>
 		<section class="container">
-			<div ng-if="vm.data.images.length" class="collage">
+			<div ng-if="vm.data.images.length">
 				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
 						<div class="collage-grid-photo-wrap">
@@ -59,16 +59,14 @@
 				</ul>
 
 				<form ng-submit="vm.saveCollage(vm.data)">
-					<input type="text" class="collage-meta-input" 
-						ng-model="vm.data.meta.title" />
-					
+					<input class="input" type="text" ng-model="vm.data.meta.title" />
 					<input  class="btn btn_primary" type="submit" value="Create!"  />
 					<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
 				</form>
 			</div>
 
-			<div class="initialContent" ng-if="!vm.data.images.length">
-				<p ng-if="!vm.hasAccessToken">
+			<div class="typeContainer" ng-if="!vm.data.images.length">
+				<p ng-if="!vm.hasAccessToken" class="textCenter">
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
 				</p>
