@@ -4,24 +4,24 @@
 	margin:  0;
 	@include sizing(padding, 0, 0, $unit-large, 0);
 }
-	.collage-grid-photo {
-		float: left; 
-		list-style:none; 
-		position: relative;
-		width: 32%;
-		margin: .25%;
-	}
-		.collage-grid-photo-img {
-      box-shadow: 1px 1px 2px #999;
-      padding: .125rem;
-      background: $white;
-      border: 6px solid $white;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.2);
-      width: 100%;
-		}
-		.collage-grid-photo-buttons {
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
+.collage-grid-photo {
+	float: left; 
+	list-style:none; 
+	position: relative;
+	width: 33%;
+	margin: 0 .16%;
+}
+.collage-grid-photo-img {
+	box-shadow: 1px 1px 2px #999;
+	padding: .125rem;
+	background: $white;
+	border: 6px solid $white;
+	box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+	width: 100%;
+}
+.collage-grid-photo-buttons {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
 
