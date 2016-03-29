@@ -1,12 +1,15 @@
 {
   "name": "Yourhashtag",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Find photos with your hashtag",
   "main": "server.js",
   "author": {
     "name": "Greg DiPietro",
     "twitter": "@hardboiledgregs",
     "email": "gjdipietro@gmail.com"
+  },
+  "scripts": {
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.12.3",
