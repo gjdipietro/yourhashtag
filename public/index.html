@@ -32,7 +32,7 @@
 			<h1 class="header-logo">
 				<a href="/" target="_self" class="header-logo-type">#YourHashtag</a>
 			</h1>
-			<form class="header-form clearfix" ng-submit="vm.processForm(vm.hashtag)" method="get">
+			<form class="header-form clearfix" ng-submit="vm.getPictures(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
 			      	<label class="inputGroup-addbefore" for="searchHash" id="searchHashLabel">#</label>
 			      	<input type="text" id="searchHash"
@@ -72,15 +72,18 @@
 				</p>
 			</div>
 		</section>
+
+		<script type="text/javascript">
+			/*jslint browser:true */
+			'use strict';
+			var html = document.getElementsByTagName('html');
+			html[0].className = '';
+		</script>
+
 	</body>
 </html>
 
-<script type="text/javascript">
-	/*jslint browser:true */
-	'use strict';
-	var html = document.getElementsByTagName('html');
-	html[0].className = '';
-</script>
+
 
 
 

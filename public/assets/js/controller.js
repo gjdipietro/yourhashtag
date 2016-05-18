@@ -19,7 +19,7 @@
     vm.hasAccessToken = instagramAPI.hasAccessToken();
 
     //button click handlers
-    vm.processForm = processForm;
+    vm.getPictures = getPictures;
     vm.clearForm = clearForm;
     vm.removeImage = removeImage;
     vm.saveCollage = saveCollage;
@@ -27,6 +27,7 @@
 
     //init
     instagramAPI.setAuth();
+
     if ($location.$$path !== '/') {
       var accessToken = $location.$$path.slice(1);
       instagramAPI.setAuth(accessToken);
@@ -35,14 +36,13 @@
     }
 
     //App Logic
-    function processForm (hashtag) {
+    function getPictures (hashtag) {
       instagramAPI.fetchHashtag(hashtag, function (resp) {
-        vm.data.images = resp.map(function (x) {
+        console.log(resp);
+        vm.data.images = resp.data.map(function (x) {
           return x.images.standard_resolution;
         });
       });
-
-      vm.data.meta.title = '#' + hashtag;
     }
 
     function clearForm() {

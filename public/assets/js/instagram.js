@@ -52,26 +52,12 @@
     }
 
     // get rid of the hack here use some kind of load more on scroll
-    function fetchHashtag (hashtag, callback, next, allImages) {
-      var callbackString = '&callback=JSON_CALLBACK';
-      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + callbackString;
-      var i;
-      if (!allImages) {
-        var allImages = [];
-      }
-      $http.jsonp(endPoint).success(function (response) {
-        console.log(response);
-        if (typeof response.pagination.next_max_id == 'undefined') {
-          for (i = 0; i < response.data.length; i++) {
-            allImages.push(response.data[i]);
-          }
-          callback(allImages);
-        } else {
-          for (i = 0; i < response.data.length; i++) {
-            allImages.push(response.data[i]);
-          }
-          fetchHashtag(hashtag, callback, response.pagination.next_max_id, allImages)
-        }
+    function fetchHashtag (hashtag, cb, next) {
+      var cbstr = '&callback=JSON_CALLBACK';
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + cbstr;
+
+      $http.jsonp(endPoint).success(function (resp) {
+        cb(resp);
       });
     }
 
