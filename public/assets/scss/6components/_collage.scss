@@ -10,7 +10,20 @@
 	position: relative;
 	width: 33%;
 	margin: 0 .16%;
+	height: 640px;
+
+	
 }
+.collage-grid-photo-wrap {
+	background: #DDD;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
+    transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
+    width: 100%;
+}
+/*
 .collage-grid-photo-img {
 	box-shadow: 1px 1px 2px #999;
 	padding: .125rem;
@@ -18,7 +31,7 @@
 	border: 6px solid $white;
 	box-shadow: 0 1px 6px rgba(0,0,0,0.2);
 	width: 100%;
-}
+}*/
 .collage-grid-photo-buttons {
 	position: absolute;
 	right: 0;

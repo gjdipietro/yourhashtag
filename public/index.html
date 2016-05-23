@@ -8,10 +8,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!--favicons-->
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="favicons/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="favicons/manifest.json">
+		<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#ff7761">
+		<meta name="apple-mobile-web-app-title" content="Your Hashtag">
+		<meta name="application-name" content="Your Hashtag">
+		<meta name="msapplication-TileColor" content="#2b5797">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#244356">
 		
 		<!-- stylesheet -->
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/assets/css/app.css">
 
 		<!-- scripts -->
@@ -29,9 +49,11 @@
 
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		<header class="header">
-			<h1 class="header-logo">
-				<a href="/" target="_self" class="header-logo-type">#YourHashtag</a>
-			</h1>
+			<h1 class="offScreen">#Your Hashtag</h1>
+			<a href="/" target="_self">
+				<img src="/assets/images/logo.png" class="header-logo" alt="header-logo">
+			</a>
+			
 			<form class="header-form clearfix" ng-submit="vm.getPictures(vm.hashtag)" method="get">
 				<div class="inputGroup header-form-input">
 			      	<label class="inputGroup-addbefore" for="searchHash" id="searchHashLabel">#</label>
@@ -49,20 +71,24 @@
 			<div ng-if="vm.data.images.length">
 				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
-						<div class="collage-grid-photo-wrap">
-							<img class="collage-grid-photo-img" ng-src="{{image.url}}"  />
+
+						<div class="collage-grid-photo-wrap" 
+							style="background-image: url('{{image.url}}'); opacity: 1;">
+							
 						</div>
 						<div class="collage-grid-photo-buttons">
 							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
 						</div>
 					</li>
 				</ul>
-
+<pre>{{vm.data.images | json}}</pre>
+				
+				<!--
 				<form ng-submit="vm.saveCollage(vm.data)">
 					<input class="input" type="text" ng-model="vm.data.meta.title" />
 					<input  class="btn btn_primary" type="submit" value="Create!"  />
 					<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
-				</form>
+				</form>-->
 			</div>
 
 			<div class="typeContainer" ng-if="!vm.data.images.length">
