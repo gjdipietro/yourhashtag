@@ -3,13 +3,23 @@
 \*------------------------------------*/
 
 html {
-	font-size: 62.5%;
+	box-sizing: border-box;
+  	font-size: 62.5%;
+  	height: 100%;
+	@media screen and (min-width: $bp1){
+    	font-size: 78.125%;
+  	}
 }
+
+
 
 body {
 	background: $background;
-	@include sizing(font-size, 1.6);
 	font-family: $sanserif;
+	@include sizing(font-size, 1.6);
+  	line-height: $line-height;
+  	min-height: 100%;
+  	position: relative;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -22,3 +32,10 @@ img {
 }
 
 
+
+.hasGrid {
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAeAQMAAAAxci3AAAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMANrkpWKEAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVAiZY2AgGzwAAAEcAOFHPV40AAAAAElFTkSuQmCC') repeat left top;
+}
+.hasGrid body, .hasGrid .header {
+	background: none !important;
+}

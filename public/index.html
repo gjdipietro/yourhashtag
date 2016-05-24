@@ -4,9 +4,10 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>#YourHashtag</title>
-		<meta name="description" content="">
+		<meta name="description" content="Search your event hashtag and save the results.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+  		<link rel="manifest" href="manifest.json" />
+		
 		<!--favicons-->
 		<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
@@ -40,8 +41,9 @@
 		<script src="/assets/js/app.js"></script>
 		<script src="/assets/js/controller.js"></script>
 		<script src="/assets/js/instagram.js"></script>
-		<script src="/assets/js/vendor/jszip.min.js"></script>
-		<script src="/assets/js/vendor/filesaver.min.js"></script>
+
+		<script src="/assets/js/vendor/jszip.min.js" async></script>
+		<script src="/assets/js/vendor/filesaver.min.js" async></script>
 		
 		<base href="/">
 	</head>
@@ -55,16 +57,16 @@
 			</a>
 			
 			<form class="header-form clearfix" ng-submit="vm.getPictures(vm.hashtag)" method="get">
-				<div class="inputGroup header-form-input">
-			      	<label class="inputGroup-addbefore" for="searchHash" id="searchHashLabel">#</label>
+				<div class="inputGroup">
+			      	<label class="input inputGroup-addon" for="searchHash" id="searchHashLabel">#</label>
 			      	<input type="text" id="searchHash"
 						name="hashtag" 
 						ng-model="vm.hashtag" 
-						class="input inputGroup-input header-form-input" 
+						class="input inputGroup-input" 
 						aria-describedby="searchHashLabel"
 						autofocus>
+					<span class="inputGroup-btn"><input type="submit" value="Search" class="btn btn_primary"></span>
 			    </div>
-				<input type="submit" value="Search" class="btn btn_primary header-form-button">
 			</form>
 		</header>
 		<section class="container">
@@ -81,7 +83,8 @@
 						</div>
 					</li>
 				</ul>
-<pre>{{vm.data.images | json}}</pre>
+				
+				pre>{{vm.data.images | json}}</pre>
 				
 				<!--
 				<form ng-submit="vm.saveCollage(vm.data)">
@@ -97,13 +100,21 @@
 					to see photos from friends with private accounts
 				</p>
 			</div>
+
 		</section>
+
+		<button type="button" id="giveGrid">Grid</button>
 
 		<script type="text/javascript">
 			/*jslint browser:true */
 			'use strict';
 			var html = document.getElementsByTagName('html');
 			html[0].className = '';
+
+			document.getElementById('giveGrid').addEventListener('click', function () {
+				html[0].className = 'hasGrid';
+				document.getElementsByTagName('body').style.background = 'none';
+			});
 		</script>
 
 	</body>

@@ -5,10 +5,9 @@
 	cursor: pointer;
   display: inline-block;
   font-family: $sanserif;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  height: $inputHeight;
-  padding: .375rem 1rem;
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: $unit_small $unit;
   text-decoration: none;
   white-space: nowrap;
 } 

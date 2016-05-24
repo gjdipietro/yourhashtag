@@ -6,31 +6,44 @@
   box-shadow: 1px 2px 1px $lightGrey inset;
   color: $darkGrey;
   font-family: $sanserif;
-  font-size: 16px;
-  line-height: 20px;
-  height: $inputHeight;
-  padding: 6px 0 6px 4px;
+  padding: $unit_small;
 }
 
 .inputGroup {
   display: table;
   border-collapse: separate;
+  box-shadow: 1px 2px 1px $lightGrey inset;
   position: relative;
 }
-  
-  .inputGroup-input {
+  .inputGroup-addon {
+    border-right-width: 0;
     display: table-cell;
-    float: left;
-    height: $inputHeight;
-    margin-bottom: 0;
-    padding-left: 30px;
-    position: relative;
-    width: 100%;
-    z-index: 2;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
   }
-  .inputGroup-addbefore {
-    left: 12px;
-    position: absolute;
-    top: 6px;
-    z-index: 100;
+  .inputGroup-input {
+    border-left-width: 0;
+    border-right-width: 0;
+    display: table-cell;
+    line-height: $line-height;
+    padding: $unit_small;
+    width: 100%;
+  }
+  .inputGroup-btn {
+    display: table-cell;
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    width: 1%;
+    vertical-align: middle;
+  }
+  .inputGroup .input {
+    box-shadow: none;
+  }
+  .inputGroup .inputGroup-input:last-child {
+    border-right-width: 1px;
+  }
+  .inputGroup .inputGroup-input:first-child {
+    border-left-width: 1px;
   }
