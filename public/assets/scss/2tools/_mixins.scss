@@ -36,7 +36,7 @@ REM AND PX FALLBACK For MARGIN PADDING
 
 /*********************************
 REM AND PX FALLBACK FONTS
-************v*********************/
+*********************************/
 @mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.5){
   font-size: ($sizeValue * 1) + px;
   line-height: ($line * 1) + px;
@@ -49,19 +49,19 @@ REM AND PX FALLBACK FONTS
 BREAKPOINTS
 *********************************/
 @mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (min-width: 70em) { @content ; }
+  @if $point == full {
+    @media (min-width: $bp1) { @content ; }
   }
-  @else if $point == laptop {
-    @media (min-width: 64em) { @content ; }
+  @else if $point == large {
+    @media (min-width: $bp2) { @content ; }
   }
-  @else if $point == tablet {
-    @media (min-width: 50em) { @content ; }
+  @else if $point == big {
+    @media (min-width: $bp3) { @content ; }
   }
-  @else if $point == phablet {
-    @media (min-width: 37.5em)  { @content ; }
+  @else if $point == small {
+    @media (min-width: $bp4)  { @content ; }
   }
-  @else if $point == mobileonly {
-    @media (max-width: 37.5em)  { @content ; }
+  @else if $point == smallest {
+    @media (max-width: $bp4)  { @content ; }
   }
 }

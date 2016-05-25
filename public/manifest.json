@@ -45,6 +45,5 @@
 	"start_url": "https:\/\/yourhashtag.com",
 	"display": "standalone",
 	"theme_color" : "#449BAA;",
-	"background_color" : "#FFFFFF",
-
+	"background_color" : "#FFFFFF"
 }
