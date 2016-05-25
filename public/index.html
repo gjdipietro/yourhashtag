@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>#YourHashtag</title>
+		<title>#yourhashtag</title>
 		<meta name="description" content="Search your event hashtag and save the results.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="manifest" href="manifest.json" />
@@ -52,8 +52,10 @@
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		<header class="header">
 			<h1 class="offScreen">#Your Hashtag</h1>
-			<a href="/" target="_self">
-				<img src="/assets/images/logo.png" class="header-logo" alt="header-logo">
+			<a href="/" target="_self" class="header-logo">
+				<object type="image/svg+xml" data="/assets/images/logos/logo.svg" class="header-logo-image" alt="Your Hashtag Logo">
+					<div class="header-logo-fallbackImage"></div>
+				</object>
 			</a>
 			
 			<form class="header-form clearfix" ng-submit="vm.getPictures(vm.hashtag)" method="get">

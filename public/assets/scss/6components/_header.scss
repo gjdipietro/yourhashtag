@@ -9,11 +9,25 @@
 	transition: all .2s ease-in-out;
 }
 	.header-logo {
-		min-width: auto;
-		padding-bottom: $unit;
-		text-align: center;
-		vertical-align: middle;
+		display: inline-block;
 	}
+		.header-logo-image {
+			@include sizing(height, 4.8);
+			min-width: auto;
+			margin-bottom: $unit;
+			pointer-events: none;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.header-logo-fallbackImage {
+			background: url('/assets/images/logos/logo.png');
+			height: 48px;
+			min-width: auto;
+			margin-bottom: $unit;
+			text-align: center;
+			vertical-align: middle;
+		}
+
 	.header-form {
 		width: 700px;
 		margin: 0 auto;
