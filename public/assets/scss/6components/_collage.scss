@@ -2,39 +2,36 @@
 
 .collage-grid {
 	margin:  0;
-	@include sizing(padding, 0, 0, $unit-large, 0);
+	padding: 0
 }
 .collage-grid-photo {
-	float: left; 
+	display:inline-block; 
 	list-style:none; 
 	position: relative;
-	width: 33%;
-	margin: 0 .16%;
-	height: 640px;
+	margin: 0 1.2rem 1.2em 1.2em;
+	width: 7.2em;
+}
 
-	
-}
-.collage-grid-photo-wrap {
-	background: #DDD;
-    height: 100%;
-    opacity: 0;
-    position: absolute;
-    -webkit-transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
-    transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
-    width: 100%;
-}
-/*
-.collage-grid-photo-img {
-	box-shadow: 1px 1px 2px #999;
-	padding: .125rem;
-	background: $white;
-	border: 6px solid $white;
-	box-shadow: 0 1px 6px rgba(0,0,0,0.2);
-	width: 100%;
-}*/
-.collage-grid-photo-buttons {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
+	.collage-grid-photo-wrap {
+		background: #DDD;
+	    height: 100%;
+	    opacity: 0;
+	    position: absolute;
+	    -webkit-transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
+	    transition: opacity 5s cubic-bezier(0.0,0.0,0.2,1);
+	    width: 100%;
+	}
+		.collage-grid-photo-img {
+			box-shadow: 1px 1px 2px #999;
+			padding: .125rem;
+			background: $white;
+			border: $unit_tiny solid $white;
+			box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+			width: 100%;
+		}
+		.collage-grid-photo-buttons {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 

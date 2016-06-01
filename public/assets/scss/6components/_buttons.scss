@@ -5,11 +5,12 @@
 	cursor: pointer;
   display: inline-block;
   font-family: $sanserif;
-  font-size: $font-size;
-  line-height: $line-height;
-  padding: $unit_small $unit;
+  padding: 0 $unit;
+  height: $unit_large;
+  line-height: $unit_large;
   text-decoration: none;
   white-space: nowrap;
+  width: auto;
 } 
 	.btn_primary {
     font-smoothing: antialiased;

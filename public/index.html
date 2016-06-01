@@ -72,34 +72,29 @@
 			</form>
 		</header>
 		<section class="container">
-			<div ng-if="vm.data.images.length">
+			<div ng-if="vm.data.length">
 				<ul class="collage-grid collage_staggered clearfix">
-					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
-						<div class="collage-grid-photo-wrap" 
-							style="opacity: 1; background-image: url('{{image.url}}');">
-						</div>
+					<li class="collage-grid-photo" ng-repeat="image in vm.data"> 
+						<img ng-src="{{image.images.low_resolution.url}}" alt="vm.hashtag" class="collage-grid-photo-img" />
 						<div class="collage-grid-photo-buttons">
-							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
+							<button class="btn btn_secondary" ng-click="vm.removePicture(image)">x</button>	
 						</div>
 					</li>
 				</ul>
 				
-				pre>{{vm.data.images | json}}</pre>
-				
-				<!--
 				<form ng-submit="vm.saveCollage(vm.data)">
 					<input class="input" type="text" ng-model="vm.data.meta.title" />
 					<input  class="btn btn_primary" type="submit" value="Create!"  />
-					<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
-				</form>-->
+				</form>
 			</div>
 
-			<div class="typeContainer" ng-if="!vm.data.images.length">
+			<div class="typeContainer" ng-if="!vm.data.length">
 				<p ng-if="!vm.hasAccessToken" class="textCenter">
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
 				</p>
 			</div>
+			<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
 
 		</section>
 
