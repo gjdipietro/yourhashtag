@@ -37,8 +37,8 @@
 
     //App Logic
     function getPictures (hashtag) {
+      vm.hashtag = hashtag = hashtag.replace(/[\. #,@%:$]+/g, '');
       instagramAPI.fetchHashtag(hashtag, function (resp) {
-        console.log(resp);
         vm.data.images = resp.data.map(function (x) {
           return x.images.standard_resolution;
         });

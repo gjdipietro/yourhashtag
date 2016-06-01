@@ -75,10 +75,8 @@
 			<div ng-if="vm.data.images.length">
 				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data.images"> 
-
 						<div class="collage-grid-photo-wrap" 
-							style="background-image: url('{{image.url}}'); opacity: 1;">
-							
+							style="opacity: 1; background-image: url('{{image.url}}');">
 						</div>
 						<div class="collage-grid-photo-buttons">
 							<button class="btn btn_secondary" ng-click="vm.removeImage($index)">x</button>	
