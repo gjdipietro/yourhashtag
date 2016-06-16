@@ -7,10 +7,10 @@
   padding-right: $unit_small;
   padding-left:  $unit_small;
   max-width: 100%;
-  @media screen and (min-width: $bp1) {
-  	padding-right: $unit;
-		padding-left:  $unit;
-    @include sizing(max-width, 150rem);
+  @include breakpoint(full) {
+    padding-right: $unit;
+    padding-left:  $unit;
+    @include sizing(max-width, 150rem); 
   }
 }
 

@@ -2,8 +2,9 @@
 .header {
 	background: $white;
 	box-shadow: 0 0 2px darken($background, 10%), 0 0 0 1px $background;;
-	margin: 0 0 $unit 0;
-	padding: $unit 0;
+	@include sizing(margin-bottom, $unit);
+	@include sizing(padding-top, $unit);
+	@include sizing(padding-bottom, $unit);
 	text-align: center;
 	transition: all .2s ease-in-out;
 }
@@ -11,18 +12,18 @@
 		display: inline-block;
 	}
 		.header-logo-image {
-			@include sizing(height, 4.8);
+			@include sizing(height, $unit_large);
 			min-width: auto;
-			margin-bottom: $unit;
+			@include sizing(margin-bottom, $unit);
 			pointer-events: none;
 			text-align: center;
 			vertical-align: middle;
 		}
 		.header-logo-fallbackImage {
+			@include sizing(margin-bottom, $unit);
 			background: url('/assets/images/logos/logo.png');
 			height: 48px;
 			min-width: auto;
-			margin-bottom: $unit;
 			text-align: center;
 			vertical-align: middle;
 		}

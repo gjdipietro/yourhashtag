@@ -33,6 +33,7 @@ $link_border_color: $lightGrey;
 $unit_tiny: .6rem;
 $unit_small: 1.2rem;
 $unit: 2.4rem;
+$unit_big: 3.2rem;
 $unit_large: 4.8rem;
 $unit_huge: 7.2rem;
 
@@ -42,12 +43,10 @@ $light: 400;
 $heavy: 700;
 
 $font-size: 1.6rem;
-$line-height: 2.4rem;
 $font-size-small: 1.2rem !default;
 $font-size-large: 2rem !default;
+$line-height: 2.4rem;
 
 //break points
-$bp1: 70em;
-$bp2: 64em;
-$bp3: 50em;
-$bp4: 37.5em;
+$bp-full: 70em;
+$bp-medium: 40em;

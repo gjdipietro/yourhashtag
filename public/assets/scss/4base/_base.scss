@@ -13,8 +13,11 @@
 
 html {
 	box-sizing: border-box;
-  	font-size: 62.5%;
+  	font-size:  62.5%;
   	height: 100%;
+  	@include breakpoint(medium) {
+    	font-size: 65.625%
+  	}
 	@include breakpoint(full) {
     	font-size: 78.125%;
   	}
@@ -34,17 +37,3 @@ img {
 	min-width: 100%;
 }
 
-
-
-/*------------------------------------*\
-    #DEV ONLY
-\*------------------------------------*/
-.hasGrid {
-	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAYAQMAAADnK87dAAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMANrkpWKEAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVAiZY2AgCTwAAAEQAOFwuZEGAAAAAElFTkSuQmCC') repeat left top;
-	@include breakpoint(full) {
-		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAeAQMAAAAxci3AAAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMANrkpWKEAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVAiZY2AgGzwAAAEcAOFHPV40AAAAAElFTkSuQmCC') repeat left top;
-  	}
-}
-.hasGrid body, .hasGrid .header {
-	background: none !important;
-}

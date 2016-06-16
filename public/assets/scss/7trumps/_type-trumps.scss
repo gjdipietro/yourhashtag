@@ -14,11 +14,11 @@
 }
 
 .u-font-small	{
-	@include sizing(font-size, $font-size-small);
+	@include font-size($font-size-small);
 }
 .u-font-base	{
-	@include sizing(font-size, $font-size);
+	@include font-size($font-size);
 }
 .u-font-large	{
-	@include sizing(font-size, $font-size-large);
+	@include font-size($font-size-large);
 }

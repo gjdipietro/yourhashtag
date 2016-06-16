@@ -49,19 +49,10 @@ REM AND PX FALLBACK FONTS
 BREAKPOINTS
 *********************************/
 @mixin breakpoint($point) {
-  @if $point == full {
-    @media (min-width: $bp1) { @content ; }
+  @if $point == medium {
+    @media (min-width: $bp-medium) { @content ; }
   }
-  @else if $point == large {
-    @media (min-width: $bp2) { @content ; }
-  }
-  @else if $point == big {
-    @media (min-width: $bp3) { @content ; }
-  }
-  @else if $point == small {
-    @media (min-width: $bp4)  { @content ; }
-  }
-  @else if $point == smallest {
-    @media (max-width: $bp4)  { @content ; }
+  @else if $point == full {
+    @media (min-width: $bp-full) { @content ; }
   }
 }
