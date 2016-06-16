@@ -2,10 +2,12 @@
     #FLOAT POSITIONS
 \*------------------------------------*/
 
-.pull-left {
+.u-pull-left {
 	float: left !important;
 }
-.pull-right {
+.u-pull-right {
 	float: right !important;
 }
-
+.u-pull-none {
+	float: none !important;
+}

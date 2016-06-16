@@ -11,6 +11,7 @@
   text-decoration: none;
   white-space: nowrap;
   width: auto;
+
 } 
 	.btn_primary {
     font-smoothing: antialiased;
@@ -23,6 +24,11 @@
       background-color: darken($primaryBtn_bgcolor, 5%);
       border-color: darken($primaryBtn_bgcolor, 5%);
     }
+    &:active {
+      background-image: linear-gradient(darken($primaryBtn_bgcolor, 5%), $primaryBtn_bgcolor);
+      background-color: darken($primaryBtn_bgcolor, 5%);
+      border: 1px solid darken($primaryBtn_bgcolor, 5%);
+    }
 	}
 	.btn_secondary {
 	  background: linear-gradient(lighten($secondaryBtn_bgcolor, 5%), $secondaryBtn_bgcolor);
@@ -33,5 +39,10 @@
       background: linear-gradient($secondaryBtn_bgcolor, lighten($secondaryBtn_bgcolor, 5%));
       border: 1px solid darken($secondaryBtn_bgcolor, 10%);
       color: darken($secondaryBtn_txtcolor, 5%);
+    }
+    &:active {
+      background-image: linear-gradient(darken($secondaryBtn_bgcolor, 5%), $secondaryBtn_bgcolor);
+      background-color: darken($secondaryBtn_bgcolor, 5%);
+      border: 1px solid darken($secondaryBtn_bgcolor, 5%);
     }
 	}

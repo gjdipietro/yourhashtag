@@ -6,17 +6,40 @@ p, pre {
 	@include sizing(margin-bottom, $unit);
 }
 
-.textCenter {
-	text-align: center;
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $heavy;
+	margin: 0;
 }
 
-.offScreen {
-	border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+h1, h2, h3{
+  line-height: 4.8rem;
+  padding: .8rem 0 1.6rem;
+}
+h4, h5, h6{
+  padding: 2.4rem 0;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.8rem;
+}
+h4 {
+  font-size: 2.0rem;
+}
+h5 {
+  font-size: 1.8rem;
+}
+h6 {
+  font-size: 1.6rem;
+}
+
+ol,
+ul{
+  margin-left: 2rem;
+  @include sizing(margin-bottom, $unit);
 }

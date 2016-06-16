@@ -30,19 +30,21 @@ $link_border_color: $lightGrey;
 
 
 //spacing
-$unit_huge: 7.2rem;
-$unit_large: 4.8rem;
-$unit: 2.4rem;
-$unit_small: 1.2rem;
 $unit_tiny: .6rem;
-
+$unit_small: 1.2rem;
+$unit: 2.4rem;
+$unit_large: 4.8rem;
+$unit_huge: 7.2rem;
 
 //fonts & type
 $sanserif: 'Roboto', sans-serif;
 $light: 400;
 $heavy: 700;
-$font-size : 1.6rem;
+
+$font-size: 1.6rem;
 $line-height: 2.4rem;
+$font-size-small: 1.2rem !default;
+$font-size-large: 2rem !default;
 
 //break points
 $bp1: 70em;

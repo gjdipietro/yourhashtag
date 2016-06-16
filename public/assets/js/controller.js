@@ -41,6 +41,7 @@
     function getPictures (hashtag) {
       vm.hashtag = hashtag = hashtag.replace(/[\. #,@%:$]+/g, '');
       instagramAPI.fetchHashtag(hashtag, function (resp) {
+        console.log(resp);
         vm.data = resp.data;
       });
     }

@@ -43,7 +43,7 @@
 		<script src="/assets/js/instagram.js"></script>
 
 		<script src="/assets/js/vendor/jszip.min.js" async></script>
-		<script src="/assets/js/vendor/filesaver.min.js" async></script>
+		<script src="/assets/js/vendor/FileSaver.min.js" async></script>
 		
 		<base href="/">
 	</head>
@@ -51,7 +51,7 @@
 
 	<body ng-app="hashtag" ng-controller="HashtagCtrl as vm">
 		<header class="header">
-			<h1 class="offScreen">#Your Hashtag</h1>
+			<h1 class="u-offScreen">#Your Hashtag</h1>
 			<a href="/" target="_self" class="header-logo">
 				<object type="image/svg+xml" data="/assets/images/logos/logo.svg" class="header-logo-image" alt="Your Hashtag Logo">
 					<div class="header-logo-fallbackImage"></div>
@@ -72,6 +72,28 @@
 			</form>
 		</header>
 		<section class="container">
+			
+			<p><button class="btn btn_secondary" id="giveGrid">Grid Buttton</button></p>
+
+			<h1> h1 heading </h1>
+			<p>paragraph</p>
+			<h2> h2 heading </h2>
+			<ul>
+			<li>item 1</li>
+			<li>item 2</li>
+			</ul>
+			<h3> h3 heading </h3>
+			<p> Oh, you're a penguins fan? you must have watched them so much before they got crosby and malkin - Willy WonkaOh, you're a penguins fan? yoOh, you're a penguins fan? you must have watched them so much before they got crosby and malkin - Willy Wonka
+			Oh, you're a penguins fan? you must have watched them so much before they got crosby and malkin - Willy Wonka
+			</p>
+			<button class="btn btn_secondary"> Buttton</button>
+			<h4>  h4 heading </h4>
+
+			
+
+			<br><br><br><br><br><br><br><br><br><br><br>
+
+
 			<div ng-if="vm.data.length">
 				<ul class="collage-grid collage_staggered clearfix">
 					<li class="collage-grid-photo" ng-repeat="image in vm.data"> 
@@ -89,7 +111,7 @@
 			</div>
 
 			<div class="typeContainer" ng-if="!vm.data.length">
-				<p ng-if="!vm.hasAccessToken" class="textCenter">
+				<p ng-if="!vm.hasAccessToken" class="u-textCenter">
 					<a ng-href="{{vm.authLink}}">Sign in</a>
 					to see photos from friends with private accounts
 				</p>
@@ -97,8 +119,6 @@
 			<button class="btn btn_secondary" ng-click="vm.downloadAllImages(vm.data.images)">Download</button>
 
 		</section>
-
-		<button type="button" id="giveGrid">Grid</button>
 
 		<script type="text/javascript">
 			/*jslint browser:true */

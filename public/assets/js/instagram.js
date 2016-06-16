@@ -54,15 +54,16 @@
     // get rid of the hack here use some kind of load more on scroll
     function fetchHashtag (hashtag, cb, next) {
       var cbstr = '&callback=JSON_CALLBACK';
-      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + cbstr;
-
+      var count = '100';
+      var endPoint = apiUrl + 'tags/' + hashtag + '/media/recent?' + instagram.getAuth() + cbstr + count;
+      console.log(endPoint);
       $http.jsonp(endPoint).success(function (resp) {
         cb(resp);
       });
     }
 
     function getAuthLink () {
-        return 'https://instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
+        return 'https://api.instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + callback + '&response_type=token';
     }
   }
 })();

@@ -1,0 +1,24 @@
+.u-textCenter {
+	text-align: center;
+}
+
+.u-offScreen {
+	border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.u-font-small	{
+	@include sizing(font-size, $font-size-small);
+}
+.u-font-base	{
+	@include sizing(font-size, $font-size);
+}
+.u-font-large	{
+	@include sizing(font-size, $font-size-large);
+}
