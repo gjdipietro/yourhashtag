@@ -51,34 +51,34 @@
 
 
 /* ## SETTINGS ## */
-@import '1settings/variables';
+@import '1settings.variables';
 
 /* ## TOOLS ## */
-@import '2tools/mixins';
+@import '2tools.mixins';
 
 /* ## GENERIC ## */
-@import '3generic/boxsizing';
-@import '3generic/normalize';
+@import '3generic.boxsizing';
+@import '3generic.normalize';
 
 /* ## BASE ## */
-@import '4base/base';
-@import '4base/links';
-@import '4base/typography';
+@import '4base.page';
+@import '4base.links';
+@import '4base.typography';
 
 /* ## OBJECTS ## */
-@import '5objects/container';
-@import '5objects/clearfix';
+@import '5objects.container';
+@import '5objects.clearfix';
 
 
 /* ## COMPONENTS ## */
-@import '6components/header';
-@import '6components/collage';
-@import '6components/buttons';
-@import '6components/formInput';
+@import '6components.header';
+@import '6components.collage';
+@import '6components.buttons';
+@import '6components.formInput';
 
 
 /* ## TRUMPS ## */
-@import '7trumps/floats-trumps';
-@import '7trumps/widths-trumps';
-@import '7trumps/type-trumps';
-@import '7trumps/spacing-trumps';
+@import '7trumps.floats-trumps';
+@import '7trumps.widths-trumps';
+@import '7trumps.type-trumps';
+@import '7trumps.spacing-trumps';
